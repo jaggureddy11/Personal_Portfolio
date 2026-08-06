@@ -1362,8 +1362,7 @@
       inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      object-position: center 30%;
+      object-fit: cover;
       opacity: 1;
       z-index: 0;
       transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -3165,6 +3164,7 @@
 
           <li class="portfolio-item">
             <a href="https://github.com/jaggureddy11" target="_blank" rel="noopener" class="portfolio-card">
+              <img src="assets/project-claude.png" alt="Claude Token Counter preview" class="portfolio-bg-img" />
               <div class="portfolio-meta-top">
                 <span>AI Developer Tool — 2026</span>
                 <div class="portfolio-badge">
@@ -3173,13 +3173,7 @@
                   </svg>
                 </div>
               </div>
-              <div class="portfolio-watermark">
-                <svg class="icon" viewBox="0 0 48 48">
-                  <path
-                    d="M24 2c2.2 13.8 7.9 19.6 22 22-14.1 2.4-19.8 8.2-22 22-2.2-13.8-7.9-19.6-22-22 14.1-2.4 19.8-8.2 22-22Z" />
-                </svg><sup>®</sup>
-              </div>
-              <div class="portfolio-bottom">
+              <div class="portfolio-bottom" style="position:relative; z-index:2;">
                 <h3 class="portfolio-card-title">Claude Token Counter</h3>
                 <p class="portfolio-card-desc">Live context token tracking Chrome extension empowering developers to
                   optimize AI model prompts.</p>
