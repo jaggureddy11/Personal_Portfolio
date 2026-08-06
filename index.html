@@ -1348,6 +1348,17 @@
       transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
+    .portfolio-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.3;
+      z-index: 0;
+      transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
     @media (min-width: 640px) {
       .portfolio-card {
         min-height: 26rem;
@@ -1358,6 +1369,10 @@
     @media (hover: hover) {
       .portfolio-card:hover {
         transform: translateY(-8px) scale(1.012);
+      }
+      .portfolio-card:hover .portfolio-bg-img {
+        opacity: 0.6;
+        transform: scale(1.05);
       }
     }
 
@@ -3093,7 +3108,8 @@
 
         <ul class="portfolio-grid">
           <li class="portfolio-item">
-            <a href="https://github.com/jaggureddy11" target="_blank" rel="noopener" class="portfolio-card">
+            <a href="https://shophere-eight.vercel.app/" target="_blank" rel="noopener" class="portfolio-card">
+              <img src="assets/project-shophere.jpg" alt="ShopHere preview" class="portfolio-bg-img" />
               <div class="portfolio-meta-top">
                 <span>Full-Stack App — 2026</span>
                 <div class="portfolio-badge">
@@ -3108,7 +3124,7 @@
                     d="M24 2c2.2 13.8 7.9 19.6 22 22-14.1 2.4-19.8 8.2-22 22-2.2-13.8-7.9-19.6-22-22 14.1-2.4 19.8-8.2 22-22Z" />
                 </svg><sup>®</sup>
               </div>
-              <div class="portfolio-bottom">
+              <div class="portfolio-bottom" style="position:relative; z-index:2;">
                 <h3 class="portfolio-card-title">ShopHere</h3>
                 <p class="portfolio-card-desc">Next.js Storefront App built with clean architecture, high performance,
                   and smooth modern UX.</p>
