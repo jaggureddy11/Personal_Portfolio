@@ -1044,10 +1044,10 @@
     /* ---------------------------------------------------- */
     /* SECTION: Stats                                       */
     /* ---------------------------------------------------- */
-    .stats-section { background: #ffffff; }
-    .stats-inner { padding-block: 0 5rem; }
+    .stats-section { background: #0a0a0a; }
+    .stats-inner { padding-block: 0 2rem; }
     @media (min-width: 640px) { .stats-inner { padding-inline: 2rem; } }
-    @media (min-width: 1024px) { .stats-inner { padding-bottom: 7rem; } }
+    @media (min-width: 1024px) { .stats-inner { padding-bottom: 3rem; } }
 
     .stats-panel {
       border-radius: var(--radius-card);
@@ -1670,12 +1670,13 @@
     .cinematic-callout-section {
       position: relative;
       width: 100%;
-      height: clamp(500px, 80vh, 750px);
+      height: clamp(520px, 85vh, 800px);
       overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
+      padding-top: clamp(2rem, 5vh, 4rem);
       color: #ffffff;
       background: #000000;
     }
@@ -1692,8 +1693,8 @@
     .cinematic-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 45%, rgba(0,0,0,0.65) 100%),
-                  radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%);
+      background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.65) 100%),
+                  radial-gradient(circle at center, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.45) 100%);
       z-index: 2;
     }
     .cinematic-content {
@@ -1706,7 +1707,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       text-align: center;
     }
     .cinematic-h2 {
