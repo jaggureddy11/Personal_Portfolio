@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#0a0a0a" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Cinzel:wght@600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <style>
     /* Global Reset & Design Tokens */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1666,17 +1666,15 @@
     .cinematic-callout-section {
       position: relative;
       width: 100%;
-      height: 80vh;
-      min-height: 520px;
-      max-height: 800px;
+      min-height: 85vh;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      padding-top: clamp(3rem, 7vh, 5.5rem);
+      justify-content: center;
+      padding: clamp(3rem, 6vh, 6rem) 1.5rem;
       color: #ffffff;
-      background: #09090b;
+      background: #000000;
     }
     .cinematic-bg-video {
       position: absolute;
@@ -1691,46 +1689,60 @@
     .cinematic-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.65) 100%);
+      background: radial-gradient(circle at center, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.75) 100%),
+                  linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%);
       z-index: 2;
     }
     .cinematic-content {
       position: relative;
       z-index: 10;
-      max-width: 58rem;
+      max-width: 56rem;
       width: 100%;
-      padding-inline: 1.5rem;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center;
+    }
+    .cinematic-glass-card {
+      background: rgba(10, 15, 26, 0.52);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 2.25rem;
+      padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3.5rem);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      color: #ffffff !important;
     }
     .cinematic-h2 {
-      font-family: 'Instrument Serif', serif !important;
-      font-size: clamp(2.5rem, 6.5vw, 5.5rem) !important;
-      font-weight: 400 !important;
-      line-height: 0.98 !important;
-      letter-spacing: -0.03em !important;
+      font-family: 'Playfair Display', 'Instrument Serif', serif !important;
+      font-size: clamp(2.2rem, 5.2vw, 4.8rem) !important;
+      font-weight: 700 !important;
+      line-height: 1.08 !important;
+      letter-spacing: -0.01em !important;
       color: #ffffff !important;
       margin: 0 auto !important;
-      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 2px 8px rgba(0, 0, 0, 0.9) !important;
+      text-shadow: 0 4px 25px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.9) !important;
     }
     .cinematic-h2 em {
       font-style: italic !important;
-      font-family: 'Instrument Serif', serif !important;
-      color: rgba(255, 255, 255, 0.8) !important;
+      font-family: 'Playfair Display', 'Instrument Serif', serif !important;
+      color: #ffebd9 !important;
+      font-weight: 700 !important;
+      text-shadow: 0 0 20px rgba(255, 235, 217, 0.4) !important;
     }
     .cinematic-subtext {
-      margin-top: 1.5rem !important;
-      max-width: 36rem !important;
-      font-size: clamp(1rem, 1.3vw, 1.25rem) !important;
-      line-height: 1.6 !important;
+      margin-top: 1.25rem !important;
+      max-width: 38rem !important;
+      font-size: clamp(1rem, 1.25vw, 1.2rem) !important;
+      line-height: 1.65 !important;
       color: rgba(255, 255, 255, 0.9) !important;
       margin-inline: auto !important;
-      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9) !important;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9) !important;
     }
     .liquid-glass {
       background: rgba(255, 255, 255, 0.08);
@@ -2513,16 +2525,18 @@
       <video class="cinematic-bg-video" autoplay loop muted playsinline src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4"></video>
       <div class="cinematic-overlay"></div>
       <div class="cinematic-content">
-        <h2 class="cinematic-h2 animate-fade-rise">
-          Where <em>dreams</em> rise <em>through the silence.</em>
-        </h2>
-        <p class="cinematic-subtext animate-fade-rise-delay">
-          Designing tools for deep thinkers, bold creators, and quiet rebels. Building digital spaces for sharp focus and inspired engineering.
-        </p>
-        <button class="liquid-glass animate-fade-rise-delay-2 open-request-modal">
-          <span>Begin Journey</span>
-          <svg class="icon icon-stroke" viewBox="0 0 24 24" style="font-size: 1.1rem;"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
+        <div class="cinematic-glass-card">
+          <h2 class="cinematic-h2">
+            Where <em>dreams</em> rise <em>through the silence.</em>
+          </h2>
+          <p class="cinematic-subtext">
+            Designing tools for deep thinkers, bold creators, and quiet rebels. Building digital spaces for sharp focus and inspired engineering.
+          </p>
+          <button class="liquid-glass open-request-modal">
+            <span>Begin Journey</span>
+            <svg class="icon icon-stroke" viewBox="0 0 24 24" style="font-size: 1.1rem;"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
       </div>
     </section>
 
