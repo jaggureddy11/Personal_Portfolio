@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#0a0a0a" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <style>
     /* Global Reset & Design Tokens */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1657,6 +1657,115 @@
       gap: 0.375rem;
       margin-top: 0.5rem;
     }
+    /* ==================================================== */
+    /* CINEMATIC FOOTER HERO & LIQUID GLASS                 */
+    /* ==================================================== */
+    .cinematic-footer-hero {
+      position: relative;
+      width: 100%;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      margin-bottom: clamp(3rem, 5vw, 5rem);
+      padding: clamp(4rem, 8vw, 8rem) 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: #ffffff;
+      background: #061826;
+    }
+    .cinematic-bg-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .cinematic-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(6, 24, 38, 0.45);
+      z-index: 1;
+    }
+    .cinematic-content {
+      position: relative;
+      z-index: 2;
+      max-width: 56rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .cinematic-h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(2.5rem, 6vw, 5.5rem);
+      font-weight: 400;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+    }
+    .cinematic-h1 em {
+      font-style: normal;
+      color: rgba(255, 255, 255, 0.65);
+    }
+    .cinematic-subtext {
+      margin-top: 1.5rem;
+      max-width: 36rem;
+      font-size: clamp(1rem, 1.25vw, 1.25rem);
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .liquid-glass {
+      background: rgba(255, 255, 255, 0.08);
+      background-blend-mode: luminosity;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: none;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.25);
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-pill);
+      padding: 1.125rem 2.75rem;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #ffffff;
+      margin-top: 2.5rem;
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .liquid-glass::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1.4px;
+      background: linear-gradient(180deg,
+        rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%,
+        rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
+        rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    @media (hover: hover) {
+      .liquid-glass:hover {
+        transform: scale(1.04);
+        background: rgba(255, 255, 255, 0.15);
+      }
+    }
+
+    @keyframes fade-rise {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-rise { animation: fade-rise 0.8s ease-out both; }
+    .animate-fade-rise-delay { animation: fade-rise 0.8s ease-out 0.2s both; }
+    .animate-fade-rise-delay-2 { animation: fade-rise 0.8s ease-out 0.4s both; }
   </style>
 </head>
 <body>
@@ -1746,7 +1855,7 @@
 
           <h1 id="hero-h1" class="hero-h1">
             <span class="line-wrap" style="display:inline-block; overflow:hidden; vertical-align:top;"><span class="line-inner" style="display:inline-block; transform:translateY(100%); opacity:0; transition: transform 0.9s cubic-bezier(0.215,0.61,0.355,1), opacity 0.9s cubic-bezier(0.215,0.61,0.355,1);">R. Jagadishwar</span></span><br/>
-            <span class="line-wrap" style="display:inline-block; overflow:hidden; vertical-align:top;"><span class="line-inner" style="display:inline-block; transform:translateY(100%); opacity:0; transition: transform 0.9s cubic-bezier(0.215,0.61,0.355,1) 0.12s, opacity 0.9s cubic-bezier(0.215,0.61,0.355,1) 0.12s;">Reddy (Jaggu)</span></span><br/>
+            <span class="line-wrap" style="display:inline-block; overflow:hidden; vertical-align:top;"><span class="line-inner" style="display:inline-block; transform:translateY(100%); opacity:0; transition: transform 0.9s cubic-bezier(0.215,0.61,0.355,1) 0.12s, opacity 0.9s cubic-bezier(0.215,0.61,0.355,1) 0.12s;">Reddy</span></span><br/>
             <span class="line-wrap" style="display:inline-block; overflow:hidden; vertical-align:top;"><span class="line-inner" style="display:inline-block; transform:translateY(100%); opacity:0; transition: transform 0.9s cubic-bezier(0.215,0.61,0.355,1) 0.24s, opacity 0.9s cubic-bezier(0.215,0.61,0.355,1) 0.24s;">Software Developer</span></span>
           </h1>
 
@@ -2386,16 +2495,22 @@
   <!-- ==================================================== -->
   <footer id="footer" class="site-footer">
     <div class="shell footer-inner">
-      <div class="footer-cta-row">
-        <h2 class="footer-h2 line-reveal-trigger">Building an ambitious project? Let's connect.</h2>
-        <button class="pill-btn light with-arrow open-request-modal">
-          <span class="pill-btn-inner">
-            <span>Get in Touch</span>
-            <span class="pill-btn-badge arrow-up-right">
-              <svg class="icon icon-stroke" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
-            </span>
-          </span>
-        </button>
+      <!-- CINEMATIC FOOTER HERO -->
+      <div class="cinematic-footer-hero">
+        <video class="cinematic-bg-video" autoplay loop muted playsinline src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4"></video>
+        <div class="cinematic-overlay"></div>
+        <div class="cinematic-content">
+          <h2 class="cinematic-h1 animate-fade-rise">
+            Where <em>dreams</em> rise <em>through the silence.</em>
+          </h2>
+          <p class="cinematic-subtext animate-fade-rise-delay">
+            Designing tools for deep thinkers, bold creators, and quiet rebels. Building digital spaces for sharp focus and inspired engineering.
+          </p>
+          <button class="liquid-glass animate-fade-rise-delay-2 open-request-modal">
+            <span>Begin Journey</span>
+            <svg class="icon icon-stroke" viewBox="0 0 24 24" style="font-size: 1.1rem;"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
       </div>
 
       <div class="footer-cols">
