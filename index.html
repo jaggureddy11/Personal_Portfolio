@@ -1787,36 +1787,6 @@
         </div>
 
         <div class="hero-right">
-          <!-- Hero Card Carousel -->
-          <div id="hero-card" class="hero-card">
-            <div id="carousel-card-row" class="hero-card-row">
-              <div class="hero-card-tile">
-                <svg class="icon" style="color: var(--accent-from);" viewBox="0 0 48 48"><path d="M24 2c2.2 13.8 7.9 19.6 22 22-14.1 2.4-19.8 8.2-22 22-2.2-13.8-7.9-19.6-22-22 14.1-2.4 19.8-8.2 22-22Z"/></svg>
-              </div>
-              <div class="hero-card-panel">
-                <div class="hero-card-content">
-                  <div id="carousel-caption" class="hero-card-caption">Conversion design</div>
-                  <div id="carousel-title" class="hero-card-title">Crafted to convert.</div>
-                </div>
-                <div class="hero-card-bottom">
-                  <div id="carousel-dots" class="carousel-dots">
-                    <span class="carousel-dash active"></span>
-                    <span class="carousel-dash inactive"></span>
-                    <span class="carousel-dash inactive"></span>
-                  </div>
-                  <div class="carousel-nav">
-                    <button id="carousel-prev" class="carousel-btn" aria-label="Previous card">
-                      <svg class="icon icon-stroke" style="transform: rotate(180deg);" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-                    </button>
-                    <button id="carousel-next" class="carousel-btn" aria-label="Next card">
-                      <svg class="icon icon-stroke" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <!-- Technologies -->
           <div id="hero-partners" class="hero-partners">
             <div class="partners-label">Core Tech Stack</div>
@@ -2733,8 +2703,7 @@
       }, 250);
 
       setTimeout(() => document.getElementById('hero-watermark').classList.add('ready'), 300);
-      setTimeout(() => document.getElementById('hero-card').classList.add('ready'), 400);
-      setTimeout(() => document.getElementById('hero-partners').classList.add('ready'), 550);
+      setTimeout(() => document.getElementById('hero-partners').classList.add('ready'), 450);
       setTimeout(() => document.getElementById('hero-rating').classList.add('ready'), 650);
       setTimeout(() => document.getElementById('hero-ctas').classList.add('ready'), 750);
       setTimeout(() => document.getElementById('hero-status').classList.add('ready'), 900);
@@ -2913,14 +2882,8 @@
 
     // 6. Hero Card Carousel
     (function initCarousel() {
-      const items = [
-        { caption: "AI & Machine Learning", title: "RAG & GenAI Workflows." },
-        { caption: "Backend Systems", title: "Scalable Microservices." },
-        { caption: "Full-Stack Craft", title: "Next.js & React Apps." }
-      ];
-      let activeIndex = 0;
-
       const row = document.getElementById('carousel-card-row');
+      if (!row) return;
       const captionEl = document.getElementById('carousel-caption');
       const titleEl = document.getElementById('carousel-title');
       const dashes = document.querySelectorAll('#carousel-dots .carousel-dash');
