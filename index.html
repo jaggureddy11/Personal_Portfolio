@@ -599,6 +599,13 @@
       position: absolute;
       inset: 0;
       z-index: 0;
+      transform-origin: left center;
+    }
+
+    @media (min-width: 1024px) {
+      .liquid-container {
+        transform: scale(1.25);
+      }
     }
 
     .liquid-base-img {
@@ -678,12 +685,12 @@
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
-      max-width: 600px;
+      max-width: 700px;
     }
 
     @media (min-width: 1024px) {
       .hero-left {
-        max-width: 600px;
+        max-width: 800px;
       }
     }
 
@@ -704,9 +711,9 @@
     /* ── Premium headline ── */
     .hero-h1 {
       font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
-      font-weight: 300;
+      font-weight: 600;
       font-style: italic;
-      font-size: clamp(2.5rem, 5vw, 5rem);
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
       line-height: 1.0;
       letter-spacing: -0.01em;
       color: var(--foreground);
@@ -2652,31 +2659,6 @@
                 style="transition-delay:0.4s">Software&nbsp;Developer</span></span>
           </h1>
 
-          <div id="hero-rating" class="hero-rating">
-            <div class="rating-stars">
-              <svg class="icon" viewBox="0 0 24 24">
-                <path
-                  d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.9l-5.8 3.05 1.1-6.46-4.69-4.58 6.49-.94L12 2.5z" />
-              </svg>
-              <svg class="icon" viewBox="0 0 24 24">
-                <path
-                  d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.9l-5.8 3.05 1.1-6.46-4.69-4.58 6.49-.94L12 2.5z" />
-              </svg>
-              <svg class="icon" viewBox="0 0 24 24">
-                <path
-                  d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.9l-5.8 3.05 1.1-6.46-4.69-4.58 6.49-.94L12 2.5z" />
-              </svg>
-              <svg class="icon" viewBox="0 0 24 24">
-                <path
-                  d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.9l-5.8 3.05 1.1-6.46-4.69-4.58 6.49-.94L12 2.5z" />
-              </svg>
-              <svg class="icon" viewBox="0 0 24 24">
-                <path
-                  d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.46L12 17.9l-5.8 3.05 1.1-6.46-4.69-4.58 6.49-.94L12 2.5z" />
-              </svg>
-            </div>
-            <span class="rating-text">CS Engineering Graduate (2026) • Android Developer Intern @ Mindmatrix</span>
-          </div>
 
           <div id="hero-ctas" class="hero-ctas">
             <button class="pill-btn dark with-arrow open-request-modal">
