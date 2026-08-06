@@ -607,7 +607,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 20%;
+      object-position: 85% 20%;
     }
 
     .liquid-canvas {
@@ -2642,11 +2642,6 @@
 
       <div class="shell hero-grid">
         <div class="hero-left">
-          <div id="hero-eyebrow" class="hero-eyebrow eyebrow dark">
-            <span class="eyebrow-dot"></span>
-            <span>Software Developer • Bengaluru, India</span>
-          </div>
-
           <h1 id="hero-h1" class="hero-h1">
             <span class="word-wrap"><span class="word-inner" style="transition-delay:0.05s">R.</span></span>
             <span class="word-wrap"><span class="word-inner"
@@ -3715,7 +3710,6 @@
     // 4. Hero Reveals (gated on ready)
     function triggerHeroReveals() {
       setTimeout(() => document.getElementById('header').classList.add('ready'), 150);
-      setTimeout(() => document.getElementById('hero-eyebrow').classList.add('ready'), 200);
 
       // H1 Word-by-word blur+skew reveal
       setTimeout(() => {
@@ -3789,7 +3783,7 @@
           } else {
             drawH = height * dpr;
             drawW = (height * dpr) * imgRatio;
-            offX = ((width * dpr) - drawW) / 2;
+            offX = ((width * dpr) - drawW) * 0.85;
             offY = 0;
           }
           coverCtx.clearRect(0, 0, coverCanvas.width, coverCanvas.height);
