@@ -1664,17 +1664,18 @@
     /* ==================================================== */
     /* CINEMATIC CALLOUT SECTION (Full Bleed)               */
     /* ==================================================== */
+    /* ==================================================== */
+    /* CINEMATIC CALLOUT SECTION (Full Bleed)               */
+    /* ==================================================== */
     .cinematic-callout-section {
       position: relative;
       width: 100%;
-      height: 70vh;
-      min-height: 480px;
-      max-height: 650px;
+      height: clamp(500px, 80vh, 750px);
       overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center;
       color: #ffffff;
       background: #000000;
     }
@@ -1691,64 +1692,68 @@
     .cinematic-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.6) 100%);
+      background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 45%, rgba(0,0,0,0.65) 100%),
+                  radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%);
       z-index: 2;
     }
     .cinematic-content {
-      position: absolute;
-      top: 3.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 20;
-      max-width: 52rem;
-      width: 92%;
+      position: relative;
+      z-index: 10;
+      max-width: 58rem;
+      width: 100%;
+      padding-inline: 1.5rem;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      text-align: center;
-    }
-    .cinematic-glass-card {
-      background: rgba(8, 12, 20, 0.65);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 2rem;
-      padding: clamp(2rem, 3.5vw, 3rem) clamp(1.25rem, 3vw, 2.5rem);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(255, 255, 255, 0.3);
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      justify-content: center;
       text-align: center;
     }
     .cinematic-h2 {
-      font-family: 'Playfair Display', 'Instrument Serif', serif !important;
-      font-size: clamp(2rem, 4.5vw, 3.8rem) !important;
-      font-weight: 700 !important;
-      line-height: 1.1 !important;
-      letter-spacing: -0.01em !important;
+      font-family: 'Instrument Serif', serif !important;
+      font-size: clamp(2.8rem, 6.5vw, 5.5rem) !important;
+      font-weight: 400 !important;
+      line-height: 1.02 !important;
+      letter-spacing: -0.025em !important;
       color: #ffffff !important;
       margin: 0 auto !important;
-      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9) !important;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.95), 0 2px 10px rgba(0, 0, 0, 0.9) !important;
     }
     .cinematic-h2 em {
-      font-style: italic !important;
-      font-family: 'Playfair Display', 'Instrument Serif', serif !important;
-      color: #ffebd9 !important;
-      font-weight: 700 !important;
+      font-style: normal !important;
+      font-family: 'Instrument Serif', serif !important;
+      color: rgba(255, 255, 255, 0.65) !important;
     }
     .cinematic-subtext {
-      margin-top: 1rem !important;
-      max-width: 36rem !important;
-      font-size: clamp(0.9rem, 1.1vw, 1.1rem) !important;
-      line-height: 1.55 !important;
-      color: rgba(255, 255, 255, 0.92) !important;
+      margin-top: 1.5rem !important;
+      max-width: 38rem !important;
+      font-size: clamp(1rem, 1.25vw, 1.25rem) !important;
+      line-height: 1.6 !important;
+      color: rgba(255, 255, 255, 0.85) !important;
       margin-inline: auto !important;
+      text-shadow: 0 2px 15px rgba(0, 0, 0, 0.9) !important;
     }
     .liquid-glass {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.1);
+      background-blend-mode: luminosity;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35), 0 8px 32px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-pill);
+      padding: 1.125rem 2.75rem;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #ffffff;
+      margin-top: 2.5rem;
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.3s ease, border-color 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
       background-blend-mode: luminosity;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
@@ -2528,18 +2533,16 @@
       <video class="cinematic-bg-video" autoplay loop muted playsinline src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4"></video>
       <div class="cinematic-overlay"></div>
       <div class="cinematic-content">
-        <div class="cinematic-glass-card">
-          <h2 class="cinematic-h2">
-            Where <em>dreams</em> rise <em>through the silence.</em>
-          </h2>
-          <p class="cinematic-subtext">
-            Designing tools for deep thinkers, bold creators, and quiet rebels. Building digital spaces for sharp focus and inspired engineering.
-          </p>
-          <button class="liquid-glass open-request-modal">
-            <span>Begin Journey</span>
-            <svg class="icon icon-stroke" viewBox="0 0 24 24" style="font-size: 1.1rem;"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
+        <h2 class="cinematic-h2">
+          Where <em>dreams</em> rise <em>through the silence.</em>
+        </h2>
+        <p class="cinematic-subtext">
+          Designing tools for deep thinkers, bold creators, and quiet rebels. Building digital spaces for sharp focus and inspired engineering.
+        </p>
+        <button class="liquid-glass open-request-modal">
+          <span>Begin Journey</span>
+          <svg class="icon icon-stroke" viewBox="0 0 24 24" style="font-size: 1.1rem;"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
       </div>
     </section>
 
