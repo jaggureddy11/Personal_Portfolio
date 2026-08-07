@@ -13,6 +13,10 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Cinzel:wght@600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
     rel="stylesheet">
+  <script>
+    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    if (savedTheme === 'dark') document.documentElement.classList.add('dark-theme');
+  </script>
   <style>
     /* Global Reset & Design Tokens */
     *,
@@ -43,6 +47,22 @@
       --radius-control: 0.875rem;
       --text-watermark: 13rem;
       --container-shell: 88rem;
+    }
+
+    :root.dark-theme {
+      --background: #0a0a0a;
+      --foreground: #f0f0f0;
+      --ink: #ffffff;
+      --muted: #a1a1a1;
+      --subtle: #3a3a3a;
+      --line: #2a2a2a;
+      --surface: #151515;
+      --surface-2: #242424;
+      --accent: #d87d46;
+      --accent-from: #e9955c;
+      --accent-to: #bd6a35;
+      --hero-from: #151515;
+      --hero-to: #050505;
     }
 
     html {
@@ -82,6 +102,7 @@
       font-family: 'Onest', sans-serif;
       overflow-x: hidden;
       line-height: 1.4;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
     a {
@@ -2632,6 +2653,11 @@
           <span class="clock-sep">•</span>
           <span id="live-date" class="clock-date">12 March, 2025</span>
         </div>
+        <button id="theme-toggle-btn" class="menu-btn" aria-label="Toggle Dark Mode" style="margin-right: 0.5rem; width: 44px; display: flex; justify-content: center; align-items: center; border-radius: var(--radius-pill); background: transparent; border: 1px solid var(--line); color: var(--foreground); padding: 0;">
+          <svg class="icon icon-stroke" viewBox="0 0 24 24" style="font-size: 1rem; color: var(--foreground);">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
         <button id="open-menu-btn" class="menu-btn" aria-label="Open Navigation Menu">
           <span class="menu-btn-inner">
             <svg class="icon icon-stroke" viewBox="0 0 24 24" style="font-size: 0.875rem;">
@@ -4307,6 +4333,14 @@
           scrollToElement(target);
         }
       });
+    });
+
+    // 14. Theme Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    themeToggleBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark-theme');
+      const newTheme = document.documentElement.classList.contains('dark-theme') ? 'dark' : 'light';
+      localStorage.setItem('theme', newTheme);
     });
 
   </script>
