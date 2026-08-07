@@ -13,10 +13,6 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Cinzel:wght@600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
     rel="stylesheet">
-  <script>
-    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    if (savedTheme === 'dark') document.documentElement.classList.add('dark-theme');
-  </script>
   <style>
     /* Global Reset & Design Tokens */
     *,
@@ -47,22 +43,6 @@
       --radius-control: 0.875rem;
       --text-watermark: 13rem;
       --container-shell: 88rem;
-    }
-
-    :root.dark-theme {
-      --background: #0a0a0a;
-      --foreground: #f0f0f0;
-      --ink: #ffffff;
-      --muted: #a1a1a1;
-      --subtle: #3a3a3a;
-      --line: #2a2a2a;
-      --surface: #151515;
-      --surface-2: #242424;
-      --accent: #d87d46;
-      --accent-from: #e9955c;
-      --accent-to: #bd6a35;
-      --hero-from: #151515;
-      --hero-to: #050505;
     }
 
     html {
@@ -102,7 +82,6 @@
       font-family: 'Onest', sans-serif;
       overflow-x: hidden;
       line-height: 1.4;
-      transition: background 0.3s ease, color 0.3s ease;
     }
 
     a {
@@ -2653,11 +2632,6 @@
           <span class="clock-sep">•</span>
           <span id="live-date" class="clock-date">12 March, 2025</span>
         </div>
-        <button id="theme-toggle-btn" class="menu-btn" aria-label="Toggle Dark Mode" style="margin-right: 0.5rem; width: 44px; display: flex; justify-content: center; align-items: center; border-radius: var(--radius-pill); background: transparent; border: 1px solid var(--line); color: var(--foreground); padding: 0;">
-          <svg class="icon icon-stroke" viewBox="0 0 24 24" style="font-size: 1rem; color: var(--foreground);">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-          </svg>
-        </button>
         <button id="open-menu-btn" class="menu-btn" aria-label="Open Navigation Menu">
           <span class="menu-btn-inner">
             <svg class="icon icon-stroke" viewBox="0 0 24 24" style="font-size: 0.875rem;">
@@ -3389,17 +3363,16 @@
       <div class="shell services-inner">
         <div class="eyebrow dark">
           <span class="eyebrow-dot"></span>
-          <span>Experience & Skills</span>
+          <span>Methodology</span>
         </div>
-        <h2 class="services-h2 line-reveal-trigger">Core Capabilities & Track Record</h2>
+        <h2 class="services-h2 line-reveal-trigger">How I Work</h2>
 
         <ul class="services-list">
           <li class="service-item">
             <div class="service-row">
               <span class="service-index">01</span>
-              <h3 class="service-title">Android Dev Intern @ Mindmatrix</h3>
-              <p class="service-desc">Feb 2026 – May 2026. Integrated AI estimation workflows, automated decisions &
-                enhanced system observability.</p>
+              <h3 class="service-title">Discover</h3>
+              <p class="service-desc">Understand the problem before writing a line of code: constraints, users, edge cases.</p>
               <div class="service-arrow-badge">
                 <svg class="icon icon-stroke" viewBox="0 0 24 24">
                   <path d="M7 17 17 7M8 7h9v9" />
@@ -3411,9 +3384,8 @@
           <li class="service-item">
             <div class="service-row">
               <span class="service-index">02</span>
-              <h3 class="service-title">AI & Machine Learning</h3>
-              <p class="service-desc">Generative AI, RAG, LangChain, Vector Embeddings (ChromaDB), OpenCV & NLP Engines.
-              </p>
+              <h3 class="service-title">Design</h3>
+              <p class="service-desc">Sketch the architecture: data flow, API contracts, failure modes.</p>
               <div class="service-arrow-badge">
                 <svg class="icon icon-stroke" viewBox="0 0 24 24">
                   <path d="M7 17 17 7M8 7h9v9" />
@@ -3425,9 +3397,8 @@
           <li class="service-item">
             <div class="service-row">
               <span class="service-index">03</span>
-              <h3 class="service-title">Backend Architecture</h3>
-              <p class="service-desc">Node.js, Express, RESTful APIs, JWT, RBAC, Clean Layered Architectures,
-                PostgreSQL, MongoDB, MySQL.</p>
+              <h3 class="service-title">Build</h3>
+              <p class="service-desc">Ship in small, testable increments with clean, typed, documented code.</p>
               <div class="service-arrow-badge">
                 <svg class="icon icon-stroke" viewBox="0 0 24 24">
                   <path d="M7 17 17 7M8 7h9v9" />
@@ -3439,9 +3410,8 @@
           <li class="service-item">
             <div class="service-row">
               <span class="service-index">04</span>
-              <h3 class="service-title">Cloud & DevOps</h3>
-              <p class="service-desc">AWS (EC2, S3), Docker, Kubernetes, CI/CD (GitHub Actions), Linux Administration,
-                Jest & Shell Scripting.</p>
+              <h3 class="service-title">Iterate</h3>
+              <p class="service-desc">Instrument, measure, and refine based on real usage.</p>
               <div class="service-arrow-badge">
                 <svg class="icon icon-stroke" viewBox="0 0 24 24">
                   <path d="M7 17 17 7M8 7h9v9" />
@@ -4333,14 +4303,6 @@
           scrollToElement(target);
         }
       });
-    });
-
-    // 14. Theme Toggle
-    const themeToggleBtn = document.getElementById('theme-toggle-btn');
-    themeToggleBtn.addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark-theme');
-      const newTheme = document.documentElement.classList.contains('dark-theme') ? 'dark' : 'light';
-      localStorage.setItem('theme', newTheme);
     });
 
   </script>
