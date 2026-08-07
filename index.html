@@ -2195,22 +2195,62 @@
       margin-top: 0.75rem;
     }
 
-    .skills-category-grid {
+    .skills-layout-grid {
       display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      gap: 1.5rem;
+      grid-template-columns: 1fr;
+      gap: 3rem;
     }
 
-    @media (min-width: 768px) {
-      .skills-category-grid {
-        grid-template-columns: repeat(2, 1fr);
+    @media (min-width: 1024px) {
+      .skills-layout-grid {
+        grid-template-columns: 320px 1fr;
+        gap: 6rem;
+        align-items: start;
       }
     }
 
-    @media (min-width: 1200px) {
-      .skills-category-grid {
-        grid-template-columns: repeat(3, 1fr);
+    .skills-sidebar {
+      position: sticky;
+      top: clamp(6rem, 10vh, 10rem);
+    }
+
+    .skills-nav {
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    @media (min-width: 1024px) {
+      .skills-nav {
+        display: flex;
       }
+    }
+
+    .skills-nav-item {
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: rgba(17, 17, 17, 0.4);
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transform-origin: left;
+    }
+
+    .skills-nav-item:hover {
+      color: rgba(17, 17, 17, 0.7);
+    }
+
+    .skills-nav-item.active {
+      color: var(--accent);
+      transform: scale(1.05) translateX(8px);
+    }
+
+    .skills-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
     }
 
     .skill-card {
@@ -2218,14 +2258,23 @@
       border: 1px solid var(--line);
       border-radius: var(--radius-card-sm);
       padding: 1.75rem;
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                  opacity 0.8s ease,
+                  border-color 0.3s ease, box-shadow 0.3s ease;
       display: flex;
       flex-direction: column;
       gap: 1.25rem;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .skill-card.in-view {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     @media (hover: hover) {
-      .skill-card:hover {
+      .skill-card.in-view:hover {
         transform: translateY(-4px);
         border-color: rgba(177, 95, 44, 0.4);
         box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.06);
@@ -2830,18 +2879,29 @@
 
     <!-- TECHNICAL SKILLS -->
     <section id="skills" class="skills-section">
-      <div class="shell">
-        <div class="skills-header">
-          <div class="eyebrow dark eyebrow-pill">
-            <span class="eyebrow-dot"></span>
-            <span>Technical Skills & Expertise</span>
+      <div class="shell skills-layout-grid">
+        <div class="skills-sidebar">
+          <div class="skills-header">
+            <div class="eyebrow dark eyebrow-pill">
+              <span class="eyebrow-dot"></span>
+              <span>Technical Skills & Expertise</span>
+            </div>
+            <h2 class="skills-h2 line-reveal-trigger">Technologies & Core Toolset</h2>
           </div>
-          <h2 class="skills-h2 line-reveal-trigger">Technologies & Core Toolset</h2>
+          
+          <ul class="skills-nav">
+            <li class="skills-nav-item active" data-target="skill-lang">Languages & Core</li>
+            <li class="skills-nav-item" data-target="skill-front">Frontend & UI</li>
+            <li class="skills-nav-item" data-target="skill-back">Backend & Systems</li>
+            <li class="skills-nav-item" data-target="skill-db">Databases & Storage</li>
+            <li class="skills-nav-item" data-target="skill-cloud">Cloud & Infrastructure</li>
+            <li class="skills-nav-item" data-target="skill-ai">AI & Machine Learning</li>
+          </ul>
         </div>
 
-        <div class="skills-category-grid">
+        <div class="skills-content">
           <!-- Category 1: Languages -->
-          <div class="skill-card">
+          <div class="skill-card" id="skill-lang">
             <div class="skill-card-head">
               <div class="skill-card-icon">
                 <svg class="icon icon-stroke" viewBox="0 0 24 24">
@@ -2873,7 +2933,7 @@
           </div>
 
           <!-- Category 2: Frontend -->
-          <div class="skill-card">
+          <div class="skill-card" id="skill-front">
             <div class="skill-card-head">
               <div class="skill-card-icon">
                 <svg class="icon icon-stroke" viewBox="0 0 24 24">
@@ -2907,7 +2967,7 @@
           </div>
 
           <!-- Category 3: Backend -->
-          <div class="skill-card">
+          <div class="skill-card" id="skill-back">
             <div class="skill-card-head">
               <div class="skill-card-icon">
                 <svg class="icon icon-stroke" viewBox="0 0 24 24">
@@ -2936,7 +2996,7 @@
           </div>
 
           <!-- Category 4: Databases -->
-          <div class="skill-card">
+          <div class="skill-card" id="skill-db">
             <div class="skill-card-head">
               <div class="skill-card-icon">
                 <svg class="icon icon-stroke" viewBox="0 0 24 24">
@@ -2964,7 +3024,7 @@
           </div>
 
           <!-- Category 5: Cloud & DevOps -->
-          <div class="skill-card">
+          <div class="skill-card" id="skill-cloud">
             <div class="skill-card-head">
               <div class="skill-card-icon">
                 <svg class="icon icon-stroke" viewBox="0 0 24 24">
@@ -2992,7 +3052,7 @@
           </div>
 
           <!-- Category 6: AI & ML -->
-          <div class="skill-card">
+          <div class="skill-card" id="skill-ai">
             <div class="skill-card-head">
               <div class="skill-card-icon">
                 <svg class="icon icon-stroke" viewBox="0 0 24 24">
@@ -4114,6 +4174,42 @@
         }, observerOptions);
         obs.observe(item);
       });
+
+      // Skills Sticky Nav Observer
+      const skillCards = document.querySelectorAll('.skill-card');
+      const navItems = document.querySelectorAll('.skills-nav-item');
+      
+      if (skillCards.length > 0 && navItems.length > 0) {
+        const skillsObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              
+              const targetId = entry.target.id;
+              navItems.forEach(nav => {
+                if (nav.dataset.target === targetId) {
+                  nav.classList.add('active');
+                } else {
+                  nav.classList.remove('active');
+                }
+              });
+            }
+          });
+        }, { threshold: 0.5, rootMargin: "-10% 0px -40% 0px" });
+
+        skillCards.forEach(card => skillsObserver.observe(card));
+        
+        // Click to scroll
+        navItems.forEach(nav => {
+          nav.addEventListener('click', () => {
+            const target = document.getElementById(nav.dataset.target);
+            if (target) {
+              const y = target.getBoundingClientRect().top + window.scrollY - 150;
+              window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+          });
+        });
+      }
 
       // Services Rows
       const servItems = document.querySelectorAll('.service-item');
