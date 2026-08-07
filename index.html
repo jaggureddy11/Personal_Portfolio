@@ -82,6 +82,51 @@
       font-family: 'Onest', sans-serif;
       overflow-x: hidden;
       line-height: 1.4;
+      cursor: none;
+    }
+
+    a, button, [role="button"], input, select, textarea {
+      cursor: none;
+    }
+
+    /* CUSTOM CURSOR */
+    .custom-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      transition: width 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), height 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+      will-change: transform, width, height;
+    }
+
+    .custom-cursor.hover {
+      width: 48px;
+      height: 48px;
+      background-color: #ffffff;
+    }
+
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--accent);
+      z-index: 10000;
+      width: 0%;
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      body { cursor: auto; }
+      a, button, [role="button"], input, select, textarea { cursor: pointer; }
+      .custom-cursor { display: none; }
     }
 
     a {
@@ -1472,16 +1517,23 @@
     /* ---------------------------------------------------- */
     .services-section {
       background: #ffffff;
+      height: 350vh;
+      position: relative;
+    }
+
+    .horizontal-scroll-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .services-inner {
-      padding-block: 5rem;
-    }
-
-    @media (min-width: 1024px) {
-      .services-inner {
-        padding-block: 7rem;
-      }
+      padding-block: 0;
+      width: 100%;
     }
 
     .services-h2 {
@@ -1499,111 +1551,96 @@
       }
     }
 
+    .services-track-container {
+      width: 100%;
+      overflow: visible;
+    }
+
     .services-list {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      gap: 2rem;
+      width: max-content;
+      padding-left: 1.5rem;
+      padding-right: 50vw;
+      will-change: transform;
+    }
+
+    @media (min-width: 1024px) {
+      .services-list {
+        padding-left: max(2rem, calc((100vw - 1200px) / 2)); 
+      }
     }
 
     .service-item {
-      border-top: 1px solid var(--line);
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .service-item.in-view {
-      opacity: 1;
-      transform: translateY(0);
+      flex-shrink: 0;
+      width: 85vw;
+      max-width: 650px;
     }
 
     .service-row {
       display: flex;
-      align-items: center;
-      gap: 1rem;
-      border-radius: var(--radius-card-sm);
-      padding-block: 1.5rem;
-      padding-inline: 1.5rem;
-      background: rgba(241, 240, 238, 0);
-      transition: background 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), padding 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-
-    @media (min-width: 640px) {
-      .service-row {
-        gap: 1.5rem;
-        padding-block: 2rem;
-      }
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-card-lg);
+      padding: 3.5rem;
+      background: #ffffff;
+      height: 100%;
+      min-height: 480px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      transition: box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
     @media (hover: hover) {
       .service-row:hover {
-        background: rgba(241, 240, 238, 1);
-        padding-left: 2rem;
-        padding-right: 1.25rem;
+        background: #ffffff;
+        box-shadow: 0 16px 50px rgba(0,0,0,0.08);
+        transform: translateY(-8px) scale(1.01);
       }
     }
 
     .service-index {
-      width: 1.75rem;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: rgba(17, 17, 17, 0.4);
-    }
-
-    @media (min-width: 640px) {
-      .service-index {
-        width: 2.5rem;
-      }
+      font-size: 2rem;
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      color: rgba(17, 17, 17, 0.3);
     }
 
     .service-title {
-      flex: 1;
-      font-size: 1.5rem;
-      font-weight: 500;
+      font-size: 3rem;
+      font-family: 'Instrument Serif', serif;
+      font-weight: 400;
       letter-spacing: -0.01em;
+      margin-top: auto;
     }
 
     @media (min-width: 640px) {
       .service-title {
-        font-size: 1.875rem;
-      }
-    }
-
-    @media (min-width: 768px) {
-      .service-title {
-        font-size: 2.25rem;
+        font-size: 4.5rem;
       }
     }
 
     .service-desc {
-      display: none;
-      max-width: 20rem;
-      font-size: 0.875rem;
-      color: rgba(17, 17, 17, 0.55);
-    }
-
-    @media (min-width: 1024px) {
-      .service-desc {
-        display: block;
-      }
+      display: block;
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: rgba(17, 17, 17, 0.65);
+      margin-bottom: 0;
+      max-width: 28rem;
     }
 
     .service-arrow-badge {
-      width: 2.5rem;
-      height: 2.5rem;
+      margin-top: auto;
+      width: 3rem;
+      height: 3rem;
       display: grid;
       place-items: center;
       border-radius: var(--radius-pill);
       background: var(--ink);
       color: #ffffff;
-      font-size: 1rem;
-      transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-
-    @media (min-width: 640px) {
-      .service-arrow-badge {
-        width: 3rem;
-        height: 3rem;
-      }
+      transition: transform 0.3s ease;
     }
 
     @media (hover: hover) {
@@ -2693,6 +2730,12 @@
 
 <body>
 
+  <!-- ==================================================== -->
+  <!-- CUSTOM CURSOR & PROGRESS                             -->
+  <!-- ==================================================== -->
+  <div id="custom-cursor" class="custom-cursor"></div>
+  <div id="scroll-progress"></div>
+
   <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- ==================================================== -->
@@ -2888,6 +2931,14 @@
                     </svg>
                   </span>
                 </a>
+                <a href="https://www.youtube.com/@R_Jagadishwar_Reddy" target="_blank" rel="noopener" class="social-chip neutral"
+                  aria-label="YouTube">
+                  <span class="social-chip-inner">
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+                    </svg>
+                  </span>
+                </a>
                 <a href="mailto:jaggureddy2004@gmail.com" class="social-chip neutral" aria-label="Email">
                   <span class="social-chip-inner">
                     <svg class="icon icon-stroke" viewBox="0 0 24 24">
@@ -2899,16 +2950,27 @@
               </div>
             </div>
 
-            <button class="pill-btn outline with-arrow open-request-modal">
-              <span class="pill-btn-inner">
-                <span>Get In Touch</span>
-                <span class="pill-btn-badge arrow-up-right">
-                  <svg class="icon icon-stroke" viewBox="0 0 24 24">
-                    <path d="M7 17 17 7M8 7h9v9" />
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <button class="pill-btn outline with-arrow open-request-modal">
+                <span class="pill-btn-inner">
+                  <span>Get In Touch</span>
+                  <span class="pill-btn-badge arrow-up-right">
+                    <svg class="icon icon-stroke" viewBox="0 0 24 24">
+                      <path d="M7 17 17 7M8 7h9v9" />
+                    </svg>
+                  </span>
+                </span>
+              </button>
+
+              <a href="#" target="_blank" rel="noopener" class="pill-btn dark no-arrow" aria-label="Download CV">
+                <span class="pill-btn-inner" style="padding: 0.75rem 1.75rem;">
+                  <span>Download CV</span>
+                  <svg class="icon icon-stroke" viewBox="0 0 24 24" style="font-size: 1rem;">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
                   </svg>
                 </span>
-              </span>
-            </button>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -3200,6 +3262,43 @@
               </div>
             </div>
           </div>
+
+          <!-- Item 3: Certifications -->
+          <div class="timeline-card">
+            <div class="timeline-meta">
+              <span class="timeline-period">Ongoing</span>
+              <h3 class="timeline-company">Certifications & Awards</h3>
+              <span class="timeline-location">Global</span>
+            </div>
+            <div class="timeline-content">
+              <h4 class="timeline-role">Continuous Learning</h4>
+              <ul class="timeline-bullets" style="gap: 0.75rem;">
+                <li style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.9375rem; color: rgba(17, 17, 17, 0.75); line-height: 1.5;">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="color: var(--accent); margin-top: 1px; flex-shrink: 0;"><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></svg>
+                  <span>
+                    <a href="https://verify.skilljar.com/c/oayeum6aecw8" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: underline;">AI Fluency: Framework & Foundations</a> (Anthropic)
+                  </span>
+                </li>
+                <li style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.9375rem; color: rgba(17, 17, 17, 0.75); line-height: 1.5;">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="color: var(--accent); margin-top: 1px; flex-shrink: 0;"><path d="M16.1 4H7.9C3.5 4 0 7.6 0 12c0 4.4 3.5 8 7.9 8h8.2c4.4 0 7.9-3.6 7.9-8 0-4.4-3.5-8-7.9-8zm0 13H7.9C5.1 17 2.9 14.8 2.9 12s2.2-5 5-5h8.2c2.8 0 5 2.2 5 5s-2.2 5-5 5z"/></svg>
+                  <span>
+                    <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=D02E5D207658FF235B3FCE6BA7CD079ADB0BDC4BF6746E1BDCD88949DCCB2E88" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: underline;">Oracle Cloud Infrastructure 2025 Certified Foundations Associate</a> (Oracle)
+                  </span>
+                </li>
+                <li style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.9375rem; color: rgba(17, 17, 17, 0.75); line-height: 1.5;">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="color: var(--accent); margin-top: 1px; flex-shrink: 0;"><path d="M0 0v24h24V0zm9.95 8.002h1.805c.061 0 .111.05.111.111v7.767c0 .061-.05.111-.11.111H9.95c-.061 0-.111-.05-.111-.11v-2.87H7.894v2.87c0 .06-.05.11-.11.11H5.976a.11.11 0 01-.11-.11V8.112c0-.06.05-.11.11-.11h1.806c.061 0 .11.05.11.11v2.869H9.84v-2.87c0-.06.05-.11.11-.11zm2.999 0h5.778c.061 0 .111.05.111.11v7.767a.11.11 0 01-.11.112h-5.78a.11.11 0 01-.11-.11V8.111c0-.06.05-.11.11-.11z"/></svg>
+                  <span>
+                    <a href="https://www.hackerrank.com/certificates/iframe/6faf151f9eee" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: underline;">HackerRank Certificate</a>
+                  </span>
+                </li>
+              </ul>
+              <div class="timeline-tech-tags">
+                <span class="tag-chip">Cloud Architecture</span>
+                <span class="tag-chip">Artificial Intelligence</span>
+                <span class="tag-chip">Problem Solving</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -3213,10 +3312,19 @@
             <span>Featured Projects</span>
           </div>
           <h2 class="portfolio-h2 line-reveal-trigger">Selected Engineering Work</h2>
+          
+          <div class="portfolio-filters" id="portfolio-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="ai">AI / ML</button>
+            <button class="filter-btn" data-filter="web">Web Apps</button>
+            <button class="filter-btn" data-filter="security">Security</button>
+            <button class="filter-btn" data-filter="mobile">Mobile</button>
+            <button class="filter-btn" data-filter="backend">Backend</button>
+          </div>
         </div>
 
         <ul class="portfolio-grid">
-<li class="portfolio-item">
+<li class="portfolio-item" data-category="ai">
             <a href="https://ticket-routing-agent.vercel.app/" target="_blank" rel="noopener" class="portfolio-card">
               <img src="assets/project-ticketrouter.png" alt="IT Ticket Router preview" class="portfolio-bg-img" />
               <div class="portfolio-meta-top">
@@ -3241,7 +3349,7 @@
           </li>
 
           
-<li class="portfolio-item">
+<li class="portfolio-item" data-category="security">
             <a href="https://capmap-three.vercel.app/" target="_blank" rel="noopener" class="portfolio-card">
               <img src="assets/project-capmap.png" alt="CapMap preview" class="portfolio-bg-img" />
               <div class="portfolio-meta-top">
@@ -3266,7 +3374,7 @@
           </li>
 
           
-<li class="portfolio-item">
+<li class="portfolio-item" data-category="security">
             <a href="https://github-profile-health-auditor.jaggureddy0307.workers.dev/" target="_blank" rel="noopener" class="portfolio-card">
               <img src="assets/project-auditor.png" alt="GitHub Profile Health Auditor preview" class="portfolio-bg-img" />
               <div class="portfolio-meta-top">
@@ -3290,7 +3398,7 @@
           </li>
 
           
-<li class="portfolio-item">
+<li class="portfolio-item" data-category="web">
             <a href="https://personalcodevault.vercel.app/" target="_blank" rel="noopener" class="portfolio-card">
               <img src="assets/project-codevault.png" alt="CodeVault preview" class="portfolio-bg-img" />
               <div class="portfolio-meta-top">
@@ -3313,7 +3421,7 @@
             </a>
           </li>
         
-<li class="portfolio-item">
+<li class="portfolio-item" data-category="web">
             <a href="https://addons.mozilla.org/en-US/firefox/addon/stayontrack-by-jaggu/" target="_blank" rel="noopener" class="portfolio-card">
               <img src="assets/project-stayontrack.png?v=3" alt="StayOnTrack preview" class="portfolio-bg-img" />
               <div class="portfolio-meta-top">
@@ -3338,7 +3446,7 @@
           </li>
 
           
-<li class="portfolio-item">
+<li class="portfolio-item" data-category="web">
             <a href="https://shophere-eight.vercel.app/" target="_blank" rel="noopener" class="portfolio-card">
               <img src="assets/shophere-mockup.png" alt="ShopHere preview" class="portfolio-bg-img" />
               <div class="portfolio-meta-top">
@@ -3362,7 +3470,7 @@
             </a>
           </li>
 
-          <li class="portfolio-item">
+          <li class="portfolio-item" data-category="backend">
             <a href="https://github.com/jaggureddy11/Workflow-Orchestration-Platform" target="_blank" rel="noopener" class="portfolio-card">
               <img src="assets/project-ewap.png" alt="Enterprise Workflow preview" class="portfolio-bg-img" />
               <div class="portfolio-meta-top">
@@ -3387,7 +3495,7 @@
           </li>
 
           
-<li class="portfolio-item">
+<li class="portfolio-item" data-category="ai">
             <a href="https://github.com/jaggureddy11/EchoVision" target="_blank" rel="noopener" class="portfolio-card">
               <img src="assets/project-echovision.png" alt="EchoVision preview" class="portfolio-bg-img" />
               <div class="portfolio-meta-top">
@@ -3412,7 +3520,7 @@
           </li>
 
           
-<li class="portfolio-item">
+<li class="portfolio-item" data-category="mobile">
             <a href="https://github.com/jaggureddy11/MeasureCraft" target="_blank" rel="noopener" class="portfolio-card">
               <img src="assets/project-measurecraft.png" alt="MeasureCraft preview" class="portfolio-bg-img" />
               <div class="portfolio-meta-top">
@@ -3436,7 +3544,7 @@
           </li>
 
           
-<li class="portfolio-item">
+<li class="portfolio-item" data-category="web">
             <a href="https://github.com/jaggureddy11" target="_blank" rel="noopener" class="portfolio-card">
               <img src="assets/project-claude.png" alt="Claude Token Counter preview" class="portfolio-bg-img" />
               <div class="portfolio-meta-top">
@@ -3467,24 +3575,22 @@
 
     <!-- SERVICES / EXPERIENCE -->
     <section id="services" class="services-section">
-      <div class="shell services-inner">
-        <div class="eyebrow dark">
-          <span class="eyebrow-dot"></span>
-          <span>Methodology</span>
+      <div class="horizontal-scroll-sticky">
+        <div class="shell services-inner">
+          <div class="eyebrow dark">
+            <span class="eyebrow-dot"></span>
+            <span>Methodology</span>
+          </div>
+          <h2 class="services-h2 line-reveal-trigger">How I Work</h2>
         </div>
-        <h2 class="services-h2 line-reveal-trigger">How I Work</h2>
-
-        <ul class="services-list">
+        
+        <div class="services-track-container">
+          <ul class="services-list" id="methodology-track">
           <li class="service-item">
             <div class="service-row">
               <span class="service-index">01</span>
               <h3 class="service-title">Discover</h3>
               <p class="service-desc">Understand the problem before writing a line of code: constraints, users, edge cases.</p>
-              <div class="service-arrow-badge">
-                <svg class="icon icon-stroke" viewBox="0 0 24 24">
-                  <path d="M7 17 17 7M8 7h9v9" />
-                </svg>
-              </div>
             </div>
           </li>
 
@@ -3493,11 +3599,6 @@
               <span class="service-index">02</span>
               <h3 class="service-title">Design</h3>
               <p class="service-desc">Sketch the architecture: data flow, API contracts, failure modes.</p>
-              <div class="service-arrow-badge">
-                <svg class="icon icon-stroke" viewBox="0 0 24 24">
-                  <path d="M7 17 17 7M8 7h9v9" />
-                </svg>
-              </div>
             </div>
           </li>
 
@@ -3506,11 +3607,6 @@
               <span class="service-index">03</span>
               <h3 class="service-title">Build</h3>
               <p class="service-desc">Ship in small, testable increments with clean, typed, documented code.</p>
-              <div class="service-arrow-badge">
-                <svg class="icon icon-stroke" viewBox="0 0 24 24">
-                  <path d="M7 17 17 7M8 7h9v9" />
-                </svg>
-              </div>
             </div>
           </li>
 
@@ -3519,14 +3615,10 @@
               <span class="service-index">04</span>
               <h3 class="service-title">Iterate</h3>
               <p class="service-desc">Instrument, measure, and refine based on real usage.</p>
-              <div class="service-arrow-badge">
-                <svg class="icon icon-stroke" viewBox="0 0 24 24">
-                  <path d="M7 17 17 7M8 7h9v9" />
-                </svg>
-              </div>
             </div>
           </li>
-        </ul>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -3940,6 +4032,12 @@
 
       window.addEventListener('resize', resize);
 
+      let canvasInView = true;
+      const canvasObs = new IntersectionObserver((entries) => {
+        canvasInView = entries[0].isIntersecting;
+      });
+      canvasObs.observe(container);
+
       let pointsQueue = [];
       let lastPoint = null;
       let isMoving = false;
@@ -4007,7 +4105,7 @@
       }
 
       function loop() {
-        if (!imgLoaded) {
+        if (!imgLoaded || !canvasInView) {
           requestAnimationFrame(loop);
           return;
         }
@@ -4201,6 +4299,33 @@
           });
         }, { threshold: 0.2 });
         obs.observe(h);
+      });
+    })();
+
+    // Portfolio Filtering Logic
+    (function initPortfolioFilters() {
+      const filters = document.querySelectorAll('.filter-btn');
+      const items = document.querySelectorAll('.portfolio-item');
+      if (!filters.length || !items.length) return;
+
+      filters.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filters.forEach(f => f.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filterValue = btn.getAttribute('data-filter');
+
+          items.forEach(item => {
+            const category = item.getAttribute('data-category');
+            if (filterValue === 'all' || category === filterValue) {
+              item.classList.remove('hidden');
+              item.classList.remove('in-view');
+              setTimeout(() => item.classList.add('in-view'), 50);
+            } else {
+              item.classList.add('hidden');
+            }
+          });
+        });
       });
     })();
 
@@ -4638,6 +4763,112 @@
       });
     });
 
+    // 14. Custom Cursor Logic
+    (function initCustomCursor() {
+      const cursor = document.getElementById('custom-cursor');
+      if (!cursor) return;
+
+      const isMobile = window.matchMedia("(max-width: 768px)").matches;
+      if (isMobile) return;
+
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+      });
+      
+      const interactables = document.querySelectorAll('a, button, input, textarea, select, .portfolio-card, .skill-card, .service-row, .timeline-card');
+      interactables.forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+      });
+    })();
+
+    // 15. 3D Tilt Effect for Portfolio
+    (function initTilt() {
+      const cards = document.querySelectorAll('.portfolio-card');
+      const isMobile = window.matchMedia("(max-width: 768px)").matches;
+      if (isMobile) return;
+
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left; 
+          const y = e.clientY - rect.top;  
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const rotateX = ((y - centerY) / centerY) * -10; 
+          const rotateY = ((x - centerX) / centerX) * 10;
+          
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+          card.style.transition = 'none';
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+          card.style.transition = 'transform 0.5s ease';
+        });
+      });
+    })();
+
+    // 16. Scroll Progress Bar
+    (function initScrollProgress() {
+      const bar = document.getElementById('scroll-progress');
+      if (!bar) return;
+      window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        bar.style.width = scrolled + '%';
+      });
+    })();
+
+    // 17. Performance Pause (Video)
+    (function initPerformancePause() {
+      const video = document.querySelector('.cinematic-bg-video');
+      if (!video) return;
+
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            video.play();
+          } else {
+            video.pause();
+          }
+        });
+      });
+      obs.observe(video);
+    })();
+
+    // 18. Horizontal Sticky Scroll for Methodology
+    (function initHorizontalScroll() {
+      const section = document.querySelector('.services-section');
+      const track = document.getElementById('methodology-track');
+      if (!section || !track) return;
+
+      window.addEventListener('scroll', () => {
+        const rect = section.getBoundingClientRect();
+        
+        // Calculate vertical scroll progress through the section
+        const maxScroll = section.offsetHeight - window.innerHeight;
+        let scrollProgress = -rect.top / maxScroll;
+        
+        // clamp progress between 0 and 1
+        scrollProgress = Math.max(0, Math.min(1, scrollProgress));
+        
+        // Calculate max translate
+        const maxTranslate = track.scrollWidth - window.innerWidth;
+        
+        if (maxTranslate > 0) {
+          if (rect.top <= 0 && scrollProgress <= 1) {
+            track.style.transform = `translateX(${-scrollProgress * maxTranslate}px)`;
+          } else if (rect.top > 0) {
+            track.style.transform = `translateX(0px)`;
+          } else if (scrollProgress > 1) {
+            track.style.transform = `translateX(${-maxTranslate}px)`;
+          }
+        }
+      });
+    })();
   </script>
 </body>
 
