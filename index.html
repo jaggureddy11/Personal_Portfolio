@@ -3691,6 +3691,16 @@
       return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
     }
 
+    function exitLoader() {
+      loaderEl.classList.add('exit');
+      setTimeout(() => {
+        isReady = true;
+        startScroll();
+        if (loaderEl.parentNode) loaderEl.parentNode.removeChild(loaderEl);
+        triggerHeroReveals();
+      }, 700);
+    }
+
     function updateLoader(now) {
       const elapsed = now - startTime;
       const t = Math.min(elapsed / FILL_MS, 1);
@@ -3703,18 +3713,18 @@
         requestAnimationFrame(updateLoader);
       } else {
         // Exit animation
-        setTimeout(() => {
-          loaderEl.classList.add('exit');
-          setTimeout(() => {
-            isReady = true;
-            startScroll();
-            if (loaderEl.parentNode) loaderEl.parentNode.removeChild(loaderEl);
-            triggerHeroReveals();
-          }, 700);
-        }, 100);
+        setTimeout(exitLoader, 100);
       }
     }
-    requestAnimationFrame(updateLoader);
+    
+    if (localStorage.getItem('jwr-loader-seen')) {
+      loaderFill.style.width = '100%';
+      loaderCounter.textContent = '100';
+      exitLoader();
+    } else {
+      localStorage.setItem('jwr-loader-seen', 'true');
+      requestAnimationFrame(updateLoader);
+    }
 
     // 4. Hero Reveals (gated on ready)
     function triggerHeroReveals() {
