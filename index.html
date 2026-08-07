@@ -2195,18 +2195,13 @@
     }
 
     @media (min-width: 1024px) {
-      .skills-pinned-track {
-        height: 600vh;
-      }
       .skills-layout-grid {
         grid-template-columns: 320px 1fr;
         gap: 6rem;
         align-items: center;
-        position: sticky;
-        top: 0;
-        height: 100vh;
+        min-height: 800px;
         overflow: hidden;
-        padding-block: 0;
+        padding-block: 6rem;
       }
     }
 
@@ -2257,10 +2252,15 @@
     .skill-card {
       background: #f1efe9; /* Light neutral matching the image */
       border: none;
-      border-radius: 2rem; /* More rounded */
-      padding: 4rem 5rem; /* Enlarge into a quadrangle */
-      min-height: 380px;
+      border-radius: 50%; /* Circle */
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      max-width: 580px;
+      margin: 0 auto;
+      padding: 4rem; 
       justify-content: center;
+      align-items: center;
+      text-align: center;
       transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), 
                   opacity 0.8s ease,
                   box-shadow 0.3s ease;
@@ -2279,18 +2279,17 @@
     @media (min-width: 1024px) {
       .skills-content {
         position: relative;
-        height: 60vh;
+        height: 650px;
       }
       .skill-card {
         position: absolute;
         top: 50%;
-        left: 0;
-        width: 100%;
-        transform: translateY(-50%) translateY(40px);
+        left: 50%;
+        transform: translate(-50%, -50%) translateY(40px);
         pointer-events: none;
       }
       .skill-card.in-view {
-        transform: translateY(-50%) translateY(0);
+        transform: translate(-50%, -50%) translateY(0);
         pointer-events: auto;
       }
     }
@@ -2343,6 +2342,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
+      justify-content: center;
     }
 
     @keyframes badgeFadeSlide {
@@ -4315,7 +4315,14 @@
         let isDesktop = window.innerWidth >= 1024;
         
         window.addEventListener('resize', () => {
+          const wasDesktop = isDesktop;
           isDesktop = window.innerWidth >= 1024;
+          if (isDesktop && !wasDesktop) {
+            startAutoScroll();
+            updateActiveCard(autoScrollIdx);
+          } else if (!isDesktop && wasDesktop) {
+            stopAutoScroll();
+          }
         }, { passive: true });
 
         // Observer for mobile
@@ -4336,53 +4343,56 @@
 
         skillCards.forEach(card => skillsObserver.observe(card));
 
-        // Scroll listener for desktop scrollytelling
-        function updateSkillsScroll() {
-          if (!isDesktop || !skillsTrack) return;
+        // Auto-scroll logic for desktop carousel
+        let autoScrollInterval;
+        let autoScrollIdx = 0;
+        
+        function updateActiveCard(idx) {
+          autoScrollIdx = idx;
+          applyTarget(autoScrollIdx);
           
-          const trackRect = skillsTrack.getBoundingClientRect();
-          const trackTop = trackRect.top;
-          const trackHeight = trackRect.height - window.innerHeight;
-          
-          if (trackHeight <= 0) return;
-          
-          let progress = -trackTop / trackHeight;
-          
-          // Add a little buffer before and after so it doesn't snap abruptly
-          if (progress < 0 || progress > 1) return; 
-          progress = Math.max(0, Math.min(1, progress));
-          
-          const totalCards = skillCards.length;
-          const continuousIdx = progress * (totalCards - 1);
-          
-          // Apply to OptionWheel continuous rotation
-          applyTarget(continuousIdx);
-          
-          // Update active card
-          const activeCardIdx = Math.round(continuousIdx);
           skillCards.forEach((card, i) => {
-            if (i === activeCardIdx) {
+            if (i === autoScrollIdx) {
               card.classList.add('in-view');
             } else {
               card.classList.remove('in-view');
             }
           });
         }
+
+        function startAutoScroll() {
+          if (!isDesktop) return;
+          stopAutoScroll(); // ensure no duplicates
+          autoScrollInterval = setInterval(() => {
+            const nextIdx = (autoScrollIdx + 1) % skillCards.length;
+            updateActiveCard(nextIdx);
+          }, 3500); // 3.5 seconds per slide
+        }
         
-        window.addEventListener('scroll', updateSkillsScroll, { passive: true });
-        updateSkillsScroll();
+        function stopAutoScroll() {
+          clearInterval(autoScrollInterval);
+        }
         
-        // Click to scroll
+        // Initialize first card on desktop
+        if (isDesktop) {
+          updateActiveCard(0);
+          startAutoScroll();
+        }
+        
+        // Pause on hover
+        const skillsSectionNode = document.getElementById('skills');
+        if (skillsSectionNode) {
+          skillsSectionNode.addEventListener('mouseenter', stopAutoScroll);
+          skillsSectionNode.addEventListener('mouseleave', startAutoScroll);
+        }
+        
+        // Click navigation
         navItems.forEach((nav, idx) => {
           nav.addEventListener('click', () => {
-            applyTarget(idx); 
-            if (isDesktop && skillsTrack) {
-               const trackRect = skillsTrack.getBoundingClientRect();
-               const trackHeight = trackRect.height - window.innerHeight;
-               const progress = idx / (skillCards.length - 1);
-               const scrollY = (window.scrollY + trackRect.top) + (progress * trackHeight);
-               window.scrollTo({ top: scrollY, behavior: 'smooth' });
+            if (isDesktop) {
+               updateActiveCard(idx);
             } else {
+               applyTarget(idx); 
                const target = document.getElementById(nav.dataset.target);
                if (target) {
                  const y = target.getBoundingClientRect().top + window.scrollY - 150;
