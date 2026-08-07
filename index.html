@@ -82,35 +82,8 @@
       font-family: 'Onest', sans-serif;
       overflow-x: hidden;
       line-height: 1.4;
-      cursor: none;
     }
 
-    a, button, [role="button"], input, select, textarea {
-      cursor: none;
-    }
-
-    /* CUSTOM CURSOR */
-    .custom-cursor {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background-color: #ffffff;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      mix-blend-mode: difference;
-      transition: width 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), height 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-      will-change: transform, width, height;
-    }
-
-    .custom-cursor.hover {
-      width: 48px;
-      height: 48px;
-      background-color: #ffffff;
-    }
 
     #scroll-progress {
       position: fixed;
@@ -123,11 +96,7 @@
       pointer-events: none;
     }
 
-    @media (max-width: 768px) {
-      body { cursor: auto; }
-      a, button, [role="button"], input, select, textarea { cursor: pointer; }
-      .custom-cursor { display: none; }
-    }
+
 
     a {
       color: inherit;
@@ -2731,9 +2700,8 @@
 <body>
 
   <!-- ==================================================== -->
-  <!-- CUSTOM CURSOR & PROGRESS                             -->
+  <!-- PROGRESS                                             -->
   <!-- ==================================================== -->
-  <div id="custom-cursor" class="custom-cursor"></div>
   <div id="scroll-progress"></div>
 
   <a href="#main" class="skip-link">Skip to content</a>
@@ -4763,24 +4731,6 @@
       });
     });
 
-    // 14. Custom Cursor Logic
-    (function initCustomCursor() {
-      const cursor = document.getElementById('custom-cursor');
-      if (!cursor) return;
-
-      const isMobile = window.matchMedia("(max-width: 768px)").matches;
-      if (isMobile) return;
-
-      document.addEventListener('mousemove', (e) => {
-        cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
-      });
-      
-      const interactables = document.querySelectorAll('a, button, input, textarea, select, .portfolio-card, .skill-card, .service-row, .timeline-card');
-      interactables.forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-      });
-    })();
 
     // 15. 3D Tilt Effect for Portfolio
     (function initTilt() {
