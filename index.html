@@ -2250,7 +2250,8 @@
     }
 
     .skill-card {
-      background: #f1efe9; /* Light neutral matching the image */
+      background: radial-gradient(120% 120% at 20% 20%, #ffffff 0%, #f0ece5 100%);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
       border: none;
       border-radius: 50%; /* Circle */
       aspect-ratio: 1 / 1;
@@ -4361,7 +4362,7 @@
         }
 
         function startAutoScroll() {
-          if (!isDesktop) return;
+          if (!isDesktop || !isSectionInView) return;
           stopAutoScroll(); // ensure no duplicates
           autoScrollInterval = setInterval(() => {
             const nextIdx = (autoScrollIdx + 1) % skillCards.length;
@@ -4374,16 +4375,63 @@
         }
         
         // Initialize first card on desktop
+        let isSectionInView = false;
         if (isDesktop) {
           updateActiveCard(0);
-          startAutoScroll();
         }
         
-        // Pause on hover
+        // Intersection Observer & Hover / Wheel controls
         const skillsSectionNode = document.getElementById('skills');
         if (skillsSectionNode) {
-          skillsSectionNode.addEventListener('mouseenter', stopAutoScroll);
-          skillsSectionNode.addEventListener('mouseleave', startAutoScroll);
+          const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              isSectionInView = entry.isIntersecting;
+              if (isSectionInView) {
+                startAutoScroll();
+              } else {
+                stopAutoScroll();
+              }
+            });
+          }, { threshold: 0.1 });
+          sectionObserver.observe(skillsSectionNode);
+
+          skillsSectionNode.addEventListener('mouseenter', () => {
+            if (isDesktop) stopAutoScroll();
+          });
+          skillsSectionNode.addEventListener('mouseleave', () => {
+            if (isDesktop) startAutoScroll();
+          });
+          
+          let wheelThrottle;
+          skillsSectionNode.addEventListener('wheel', (e) => {
+            if (!isDesktop) return;
+            
+            // Allow native scroll if scrolling past the bounds
+            const isScrollingDown = e.deltaY > 0;
+            const isScrollingUp = e.deltaY < 0;
+            const atEnd = autoScrollIdx === skillCards.length - 1;
+            const atStart = autoScrollIdx === 0;
+            
+            if ((isScrollingDown && atEnd) || (isScrollingUp && atStart)) {
+              return; // let native scroll happen to exit section
+            }
+            
+            e.preventDefault(); // Trap scroll to navigate cards
+            
+            if (wheelThrottle) return;
+            stopAutoScroll();
+            
+            if (isScrollingDown) {
+               updateActiveCard(autoScrollIdx + 1);
+            } else if (isScrollingUp) {
+               updateActiveCard(autoScrollIdx - 1);
+            }
+            
+            wheelThrottle = setTimeout(() => {
+               wheelThrottle = null;
+            }, 600); // Cooldown to prevent runaway scrolling
+            
+          }, { passive: false });
         }
         
         // Click navigation
