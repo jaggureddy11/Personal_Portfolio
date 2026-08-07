@@ -1068,26 +1068,27 @@
       }
     }
 
-    .about-globe-bg {
-      position: absolute;
-      left: -1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 12rem;
-      color: rgba(17, 17, 17, 0.1);
-      pointer-events: none;
+    .about-profile-img {
+      width: 12rem;
+      height: 12rem;
+      object-fit: cover;
+      border-radius: 1.5rem;
+      margin: 2rem 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
 
     @media (min-width: 640px) {
-      .about-globe-bg {
-        font-size: 16rem;
+      .about-profile-img {
+        width: 14rem;
+        height: 14rem;
       }
     }
 
     @media (min-width: 1024px) {
-      .about-globe-bg {
-        left: -1.5rem;
-        font-size: 20rem;
+      .about-profile-img {
+        width: 18rem;
+        height: 18rem;
+        margin-top: 3rem;
       }
     }
 
@@ -2729,15 +2730,13 @@
     <section id="about" class="about-section">
       <div class="shell about-grid">
         <div class="about-left">
-          <svg class="icon icon-stroke about-globe-bg" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="9.25" />
-            <path
-              d="M12 2.75c2.6 2.3 4 5.8 4 9.25s-1.4 6.95-4 9.25c-2.6-2.3-4-5.8-4-9.25s1.4-6.95 4-9.25zM2.75 12h18.5" />
-          </svg>
+
           <div class="eyebrow dark">
             <span class="eyebrow-dot"></span>
             <span>About Me</span>
           </div>
+          
+          <img src="assets/profile.png" alt="Jagadishwar Reddy" class="about-profile-img" />
           <div class="about-left-bottom">
             <svg class="icon icon-stroke" style="font-size: 1.5rem; color: #111;" viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="9.25" />
