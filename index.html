@@ -4010,11 +4010,12 @@
           words.forEach(w => {
             const wrap = document.createElement('span');
             wrap.className = 'word-wrap';
-            wrap.style.cssText = 'display:inline-block; overflow:hidden; vertical-align:top; margin-right:0.35em;';
+            wrap.style.marginRight = '0.3em';
+            
             const inner = document.createElement('span');
             inner.className = 'word-inner';
-            inner.style.cssText = 'display:inline-block; transform:translateY(24px); opacity:0; transition: transform 0.7s cubic-bezier(0.165,0.84,0.44,1), opacity 0.7s cubic-bezier(0.165,0.84,0.44,1);';
             inner.textContent = w;
+            
             wrap.appendChild(inner);
             h2.appendChild(wrap);
           });
@@ -4024,11 +4025,13 @@
           words.forEach(w => {
             const wrap = document.createElement('span');
             wrap.className = 'word-wrap';
-            wrap.style.cssText = 'display:inline-block; overflow:hidden; vertical-align:top; margin-right:0.35em;';
+            wrap.style.marginRight = '0.3em';
+            
             const inner = document.createElement('span');
             inner.className = 'word-inner';
-            inner.style.cssText = `display:inline-block; transform:translateY(24px); opacity:0; transition: transform 0.7s cubic-bezier(0.165,0.84,0.44,1), opacity 0.7s cubic-bezier(0.165,0.84,0.44,1); ${colorStyle}`;
+            if (colorStyle) inner.style.cssText = colorStyle;
             inner.textContent = w;
+            
             wrap.appendChild(inner);
             h2.appendChild(wrap);
           });
@@ -4040,10 +4043,8 @@
           if (entry.isIntersecting) {
             const inners = h2.querySelectorAll('.word-inner');
             inners.forEach((el, idx) => {
-              setTimeout(() => {
-                el.style.transform = 'translateY(0px)';
-                el.style.opacity = '1';
-              }, idx * 35);
+              el.style.transitionDelay = `${idx * 0.02}s`;
+              el.classList.add('revealed');
             });
             observer.unobserve(h2);
           }
