@@ -1,51 +1,57 @@
-import re
-
 with open('index.html', 'r') as f:
-    content = f.read()
+    lines = f.readlines()
 
-# Find the portfolio grid list items
-start_tag = '<ul class="portfolio-grid">'
-end_tag = '</ul>\n      </div>'
+# Find Methodology section bounds
+methodology_start = -1
+methodology_end = -1
+for i, line in enumerate(lines):
+    if '<!-- SERVICES / EXPERIENCE -->' in line:
+        methodology_start = i
+    if methodology_start != -1 and '</section>' in line and i > methodology_start:
+        methodology_end = i
+        break
 
-start_idx = content.find(start_tag) + len(start_tag)
-end_idx = content.find(end_tag)
+print(f"Methodology: {methodology_start} to {methodology_end}")
 
-ul_content = content[start_idx:end_idx]
+# Find Certifications section bounds
+certifications_start = -1
+certifications_end = -1
+for i, line in enumerate(lines):
+    if '<section id="certifications"' in line:
+        # Include the comment above it if it exists
+        if i > 0 and '<!--' in lines[i-1] and 'CERTIFICATIONS' in lines[i-1].upper():
+            certifications_start = i - 1
+        else:
+            certifications_start = i
+    if certifications_start != -1 and '</section>' in line and i > certifications_start:
+        certifications_end = i
+        break
 
-# Split by <li class="portfolio-item">
-items = ul_content.split('<li class="portfolio-item">')
-# the first item is whitespace
-items = items[1:]
+print(f"Certifications: {certifications_start} to {certifications_end}")
 
-projects = {}
-for item in items:
-    # get the title
-    title_match = re.search(r'<h3 class="portfolio-card-title">(.*?)</h3>', item)
-    if title_match:
-        title = title_match.group(1)
-        projects[title] = '<li class="portfolio-item">' + item
-    else:
-        print("Title not found for an item")
-
-# Order by impact
-order = [
-    "Enterprise Workflow",
-    "IT Ticket Router",
-    "EchoVision",
-    "MeasureCraft",
-    "CapMap",
-    "GitHub Profile Health Auditor",
-    "Code Vault",
-    "Claude Token Counter",
-    "StayOnTrack",
-    "ShopHere"
-]
-
-new_ul_content = "\n".join([projects[title] for title in order if title in projects])
-
-new_content = content[:start_idx] + "\n" + new_ul_content + content[end_idx:]
-
-with open('index.html', 'w') as f:
-    f.write(new_content)
-
-print("Reordered successfully!")
+if methodology_start != -1 and certifications_start != -1:
+    methodology_lines = lines[methodology_start:methodology_end+1]
+    
+    # Remove methodology from its current position
+    # But wait, if methodology is BEFORE certifications, removing it shifts the certification indices.
+    
+    new_lines = []
+    i = 0
+    while i < len(lines):
+        if i == methodology_start:
+            i = methodology_end + 1
+            continue
+        new_lines.append(lines[i])
+        if i == certifications_end:
+            # Insert methodology right after the certifications section ends
+            # We add a blank line for spacing
+            new_lines.append('\n')
+            new_lines.extend(methodology_lines)
+            new_lines.append('\n')
+        i += 1
+        
+    with open('index.html', 'w') as f:
+        f.writelines(new_lines)
+    print("Reordered successfully!")
+else:
+    print("Could not find sections.")
