@@ -1451,27 +1451,32 @@
     }
 
     .portfolio-bottom {
-      position: relative;
-      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      padding: 0.5rem 0 0 0;
     }
 
     .portfolio-card-title {
-      font-size: 1.5rem;
-      font-weight: 500;
+      font-family: 'Instrument Serif', serif;
+      font-size: 2rem;
+      font-weight: 400;
       letter-spacing: -0.01em;
+      line-height: 1.1;
+      color: var(--foreground);
     }
 
     @media (min-width: 640px) {
       .portfolio-card-title {
-        font-size: 1.875rem;
+        font-size: 2.25rem;
       }
     }
 
     .portfolio-card-desc {
       margin-top: 0.5rem;
-      max-width: 28rem;
-      font-size: 0.875rem;
-      color: rgba(255, 255, 255, 0.55);
+      max-width: 32rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.5;
     }
 
     .portfolio-tags {
@@ -1479,6 +1484,16 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
+    }
+
+    .portfolio-card .tag-chip {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.25rem 0.75rem;
+      border-radius: 2rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: var(--muted);
     }
 
     /* ---------------------------------------------------- */
