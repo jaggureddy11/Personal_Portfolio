@@ -2785,13 +2785,10 @@
   <!-- LOADER                                               -->
   <!-- ==================================================== -->
   <div id="loader" class="page-loader" aria-live="polite">
-    <div class="loader-center">
-      <div class="loader-title">
-        <img src="assets/logo.jpg" alt="Logo"
-          style="width: 2.5rem; height: 2.5rem; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.1);" />
-        JWR
+    <div class="loader-center" style="display: flex; align-items: center; justify-content: center; width: 100vw; pointer-events: none;">
+      <div id="splash-name" style="font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(3rem, 8vw, 8rem); font-weight: 300; line-height: 1; letter-spacing: -0.01em; color: var(--foreground); white-space: nowrap; text-align: center; transform-origin: center;">
+        R Jagadishwar Reddy
       </div>
-      <p class="loader-desc">R. Jagadishwar Reddy — Software Developer & CS Engineer (2026)</p>
     </div>
     <div class="loader-progress-block">
       <div class="loader-track">
@@ -2865,13 +2862,13 @@
       <div class="shell hero-grid">
         <div class="hero-left">
           <h1 id="hero-h1" class="hero-h1">
-            <span class="word-wrap"><span class="word-inner" style="transition-delay:0.05s">R</span></span>
-            <span class="word-wrap"><span class="word-inner"
-                style="transition-delay:0.15s">&nbsp;Jagadishwar</span></span>
-            <span class="word-wrap"><span class="word-inner"
-                style="transition-delay:0.26s">&nbsp;Reddy</span></span><br />
-            <span class="word-wrap"><span class="word-inner word-accent"
-                style="transition-delay:0.4s">Software&nbsp;Developer</span></span>
+            <span id="hero-name-part" style="display: inline-block; transform-origin: top left; will-change: transform;">
+              <span class="word-wrap"><span class="word-inner" style="transition-delay:0.05s">R</span></span>
+              <span class="word-wrap"><span class="word-inner" style="transition-delay:0.15s">&nbsp;Jagadishwar</span></span>
+              <span class="word-wrap"><span class="word-inner" style="transition-delay:0.26s">&nbsp;Reddy</span></span>
+            </span>
+            <br />
+            <span class="word-wrap"><span class="word-inner word-accent" style="transition-delay:0.4s">Software&nbsp;Developer</span></span>
           </h1>
 
           <div id="hero-rating" class="hero-rating">
@@ -4260,13 +4257,56 @@
     }
 
     function exitLoader() {
+      const splashName = document.getElementById('splash-name');
+      const heroNamePart = document.getElementById('hero-name-part');
+      
+      // Force hero text to its final revealed state to calculate accurate bounds
+      const innerWords = heroNamePart.querySelectorAll('.word-inner');
+      innerWords.forEach(el => {
+        el.style.transition = 'none';
+        el.classList.add('revealed');
+      });
+      // Force reflow
+      heroNamePart.offsetHeight;
+      
+      // 1. First: Get splash name bounds
+      const firstRect = splashName.getBoundingClientRect();
+      const lastRect = heroNamePart.getBoundingClientRect();
+      
+      // Calculate differences
+      const deltaX = firstRect.left - lastRect.left;
+      const deltaY = firstRect.top - lastRect.top;
+      // Use font-size ratio instead of width/height for cleaner text scaling without wrapping issues
+      const splashStyle = window.getComputedStyle(splashName);
+      const heroStyle = window.getComputedStyle(heroNamePart);
+      const splashFontSize = parseFloat(splashStyle.fontSize);
+      const heroFontSize = parseFloat(heroStyle.fontSize);
+      const scale = splashFontSize / heroFontSize;
+      
+      // 2. Invert: Apply transform to hero name to make it start at splash position
+      heroNamePart.style.transition = 'none';
+      heroNamePart.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(${scale})`;
+      
+      // Hide splash text and let background fade
+      splashName.style.opacity = '0';
       loaderEl.classList.add('exit');
+      
+      // Force reflow
+      heroNamePart.offsetHeight;
+      
+      // Restore transitions to words so they don't snap if they change again (though they shouldn't)
+      innerWords.forEach(el => el.style.transition = '');
+      
+      // 3. Play: Animate to final position
+      heroNamePart.style.transition = 'transform 1.2s cubic-bezier(0.77, 0, 0.175, 1)';
+      heroNamePart.style.transform = 'translate(0, 0) scale(1)';
+      
       setTimeout(() => {
         isReady = true;
         startScroll();
         if (loaderEl.parentNode) loaderEl.parentNode.removeChild(loaderEl);
         triggerHeroReveals();
-      }, 700);
+      }, 1200); // Wait for transition
     }
 
     function updateLoader(now) {
