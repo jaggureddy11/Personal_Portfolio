@@ -1088,7 +1088,7 @@
       object-fit: cover;
       border-radius: 1.5rem;
       margin: 2rem 0;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     }
 
     @media (min-width: 640px) {
@@ -1222,8 +1222,8 @@
       opacity: 0;
       transform: translateY(60px) rotateX(-25deg) scale(0.9);
       transform-origin: center top;
-      transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1), 
-                  transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1),
+        transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
 
     .create-band-item.in-view {
@@ -1251,7 +1251,7 @@
     @media (hover: hover) {
       .create-tile:hover {
         transform: scale(1.04) translateY(-4px);
-        box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
       }
     }
 
@@ -1381,8 +1381,9 @@
     @media (hover: hover) {
       .portfolio-card:hover .portfolio-image-wrapper {
         transform: translateY(-4px);
-        box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
       }
+
       .portfolio-card:hover .portfolio-bg-img {
         transform: scale(1.05);
       }
@@ -1399,7 +1400,7 @@
       z-index: 2;
     }
 
-    .portfolio-meta-top > span {
+    .portfolio-meta-top>span {
       background: rgba(10, 10, 10, 0.65);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
@@ -1552,7 +1553,7 @@
 
     @media (min-width: 1024px) {
       .services-list {
-        padding-left: max(2rem, calc((100vw - 1200px) / 2)); 
+        padding-left: max(2rem, calc((100vw - 1200px) / 2));
       }
     }
 
@@ -1575,14 +1576,14 @@
       background: #ffffff;
       height: 100%;
       min-height: 480px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
       transition: box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
     @media (hover: hover) {
       .service-row:hover {
         background: #ffffff;
-        box-shadow: 0 16px 50px rgba(0,0,0,0.08);
+        box-shadow: 0 16px 50px rgba(0, 0, 0, 0.08);
         transform: translateY(-8px) scale(1.01);
       }
     }
@@ -2275,18 +2276,19 @@
       background: radial-gradient(120% 120% at 20% 20%, #ffffff 0%, #f0ece5 100%);
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
       border: none;
-      border-radius: 50%; /* Circle */
+      border-radius: 50%;
+      /* Circle */
       aspect-ratio: 1 / 1;
       width: 100%;
       max-width: 580px;
       margin: 0 auto;
-      padding: 4rem; 
+      padding: 4rem;
       justify-content: center;
       align-items: center;
       text-align: center;
-      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
-                  opacity 0.3s ease,
-                  box-shadow 0.2s ease;
+      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+        opacity 0.3s ease,
+        box-shadow 0.2s ease;
       display: flex;
       flex-direction: column;
       gap: 2rem;
@@ -2298,12 +2300,13 @@
       opacity: 1;
       transform: translateY(0);
     }
-    
+
     @media (min-width: 1024px) {
       .skills-content {
         position: relative;
         height: 650px;
       }
+
       .skill-card {
         position: absolute;
         top: 50%;
@@ -2311,6 +2314,7 @@
         transform: translate(-50%, -50%) translateY(40px);
         pointer-events: none;
       }
+
       .skill-card.in-view {
         transform: translate(-50%, -50%) translateY(0);
         pointer-events: auto;
@@ -2330,9 +2334,20 @@
     }
 
     @keyframes iconPopIn {
-      0% { transform: scale(0.5); opacity: 0; }
-      60% { transform: scale(1.1); opacity: 1; }
-      100% { transform: scale(1); opacity: 1; }
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+
+      60% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     .skill-card-icon {
@@ -2343,10 +2358,11 @@
       border: 1px solid rgba(0, 0, 0, 0.05);
       display: grid;
       place-items: center;
-      color: #df5a3c; /* subtle orange/red tint for the icon */
+      color: #df5a3c;
+      /* subtle orange/red tint for the icon */
       font-size: 1.75rem;
       flex-shrink: 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
       opacity: 0;
     }
 
@@ -2369,8 +2385,15 @@
     }
 
     @keyframes badgeFadeSlide {
-      0% { opacity: 0; transform: translateY(12px); }
-      100% { opacity: 1; transform: translateY(0); }
+      0% {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .skill-badge {
@@ -2380,7 +2403,8 @@
       padding: 0.75rem 1.25rem;
       background: #ffffff;
       border: none;
-      border-radius: 2.5rem; /* full pill */
+      border-radius: 2.5rem;
+      /* full pill */
       font-size: 1rem;
       font-weight: 600;
       color: #111111;
@@ -2393,18 +2417,53 @@
       animation: badgeFadeSlide 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     }
 
-    .skill-card.in-view .skill-badge:nth-child(1) { animation-delay: 0.05s; }
-    .skill-card.in-view .skill-badge:nth-child(2) { animation-delay: 0.08s; }
-    .skill-card.in-view .skill-badge:nth-child(3) { animation-delay: 0.11s; }
-    .skill-card.in-view .skill-badge:nth-child(4) { animation-delay: 0.14s; }
-    .skill-card.in-view .skill-badge:nth-child(5) { animation-delay: 0.17s; }
-    .skill-card.in-view .skill-badge:nth-child(6) { animation-delay: 0.20s; }
-    .skill-card.in-view .skill-badge:nth-child(7) { animation-delay: 0.23s; }
-    .skill-card.in-view .skill-badge:nth-child(8) { animation-delay: 0.26s; }
-    .skill-card.in-view .skill-badge:nth-child(9) { animation-delay: 0.29s; }
-    .skill-card.in-view .skill-badge:nth-child(10) { animation-delay: 0.32s; }
-    .skill-card.in-view .skill-badge:nth-child(11) { animation-delay: 0.35s; }
-    .skill-card.in-view .skill-badge:nth-child(12) { animation-delay: 0.38s; }
+    .skill-card.in-view .skill-badge:nth-child(1) {
+      animation-delay: 0.05s;
+    }
+
+    .skill-card.in-view .skill-badge:nth-child(2) {
+      animation-delay: 0.08s;
+    }
+
+    .skill-card.in-view .skill-badge:nth-child(3) {
+      animation-delay: 0.11s;
+    }
+
+    .skill-card.in-view .skill-badge:nth-child(4) {
+      animation-delay: 0.14s;
+    }
+
+    .skill-card.in-view .skill-badge:nth-child(5) {
+      animation-delay: 0.17s;
+    }
+
+    .skill-card.in-view .skill-badge:nth-child(6) {
+      animation-delay: 0.20s;
+    }
+
+    .skill-card.in-view .skill-badge:nth-child(7) {
+      animation-delay: 0.23s;
+    }
+
+    .skill-card.in-view .skill-badge:nth-child(8) {
+      animation-delay: 0.26s;
+    }
+
+    .skill-card.in-view .skill-badge:nth-child(9) {
+      animation-delay: 0.29s;
+    }
+
+    .skill-card.in-view .skill-badge:nth-child(10) {
+      animation-delay: 0.32s;
+    }
+
+    .skill-card.in-view .skill-badge:nth-child(11) {
+      animation-delay: 0.35s;
+    }
+
+    .skill-card.in-view .skill-badge:nth-child(12) {
+      animation-delay: 0.38s;
+    }
 
     .skill-badge:hover {
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
@@ -2728,7 +2787,8 @@
   <div id="loader" class="page-loader" aria-live="polite">
     <div class="loader-center">
       <div class="loader-title">
-        <img src="assets/logo.jpg" alt="Logo" style="width: 2.5rem; height: 2.5rem; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.1);" />
+        <img src="assets/logo.jpg" alt="Logo"
+          style="width: 2.5rem; height: 2.5rem; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.1);" />
         JWR
       </div>
       <p class="loader-desc">R. Jagadishwar Reddy — Software Developer & CS Engineer (2026)</p>
@@ -2750,7 +2810,8 @@
   <header id="header" class="site-header">
     <div class="shell header-inner">
       <button class="header-brand" data-scroll="#home" aria-label="JWR Home">
-        <img src="assets/logo.jpg" alt="Logo" style="width: 1.75rem; height: 1.75rem; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.1);" />
+        <img src="assets/logo.jpg" alt="Logo"
+          style="width: 1.75rem; height: 1.75rem; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.1);" />
         <span>JWR</span>
       </button>
 
@@ -2874,7 +2935,7 @@
             <span class="eyebrow-dot"></span>
             <span>About Me</span>
           </div>
-          
+
           <img src="assets/profile.jpg" alt="Jagadishwar Reddy" class="about-profile-img" />
           <div class="about-left-bottom">
             <svg class="icon icon-stroke" style="font-size: 1.5rem; color: #111;" viewBox="0 0 24 24">
@@ -2888,9 +2949,13 @@
 
         <div class="about-right">
           <h2 id="about-h2" class="about-h2">
-            Hey, I'm Jagadishwar. I started coding because I wanted to know how stuff worked — turned into a bit of an obsession after that. These days I build things I hope people actually enjoy using.
-            <span style="color: var(--muted);">Most of what I know didn't come from a classroom — it came from freelance work, contributing to open-source, and building personal projects at 2am because I couldn't leave a bug alone.</span>
-            I'm graduating with a CS Engineering degree in 2026, based in Bengaluru. My whole thing is: <span style="color: var(--muted);">good software shouldn't make you think. It should just work.</span>
+            Hey, I'm Jagadishwar. I started coding because I wanted to know how stuff worked — turned into a bit of an
+            obsession after that. These days I build things I hope people actually enjoy using.
+            <span style="color: var(--muted);">Most of what I know didn't come from a classroom — it came from freelance
+              work, contributing to open-source, and building personal projects at 2am because I couldn't leave a bug
+              alone.</span>
+            I'm graduating with a CS Engineering degree in 2026, based in Bengaluru. My whole thing is: <span
+              style="color: var(--muted);">good software shouldn't make you think. It should just work.</span>
           </h2>
 
           <div class="about-footer-row">
@@ -2915,11 +2980,12 @@
                     </svg>
                   </span>
                 </a>
-                <a href="https://www.youtube.com/@R_Jagadishwar_Reddy" target="_blank" rel="noopener" class="social-chip neutral"
-                  aria-label="YouTube">
+                <a href="https://www.youtube.com/@R_Jagadishwar_Reddy" target="_blank" rel="noopener"
+                  class="social-chip neutral" aria-label="YouTube">
                   <span class="social-chip-inner">
                     <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+                      <path
+                        d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
                     </svg>
                   </span>
                 </a>
@@ -2986,203 +3052,204 @@
     <section id="skills" class="skills-section">
       <div class="skills-pinned-track" id="skills-track">
         <div class="shell skills-layout-grid">
-        <div class="skills-sidebar">
-          <div class="skills-header">
-            <div class="eyebrow dark eyebrow-pill">
-              <span class="eyebrow-dot"></span>
-              <span>Technical Skills & Expertise</span>
+          <div class="skills-sidebar">
+            <div class="skills-header">
+              <div class="eyebrow dark eyebrow-pill">
+                <span class="eyebrow-dot"></span>
+                <span>Technical Skills & Expertise</span>
+              </div>
+              <h2 class="skills-h2 line-reveal-trigger">What I Work With</h2>
             </div>
-            <h2 class="skills-h2 line-reveal-trigger">What I Work With</h2>
+
+            <ul class="skills-nav">
+              <li class="skills-nav-item active" data-target="skill-lang">Languages & Core</li>
+              <li class="skills-nav-item" data-target="skill-front">Frontend & UI</li>
+              <li class="skills-nav-item" data-target="skill-back">Backend & Systems</li>
+              <li class="skills-nav-item" data-target="skill-db">Databases & Storage</li>
+              <li class="skills-nav-item" data-target="skill-cloud">Cloud & Infrastructure</li>
+              <li class="skills-nav-item" data-target="skill-ai">AI & Machine Learning</li>
+            </ul>
           </div>
-          
-          <ul class="skills-nav">
-            <li class="skills-nav-item active" data-target="skill-lang">Languages & Core</li>
-            <li class="skills-nav-item" data-target="skill-front">Frontend & UI</li>
-            <li class="skills-nav-item" data-target="skill-back">Backend & Systems</li>
-            <li class="skills-nav-item" data-target="skill-db">Databases & Storage</li>
-            <li class="skills-nav-item" data-target="skill-cloud">Cloud & Infrastructure</li>
-            <li class="skills-nav-item" data-target="skill-ai">AI & Machine Learning</li>
-          </ul>
+
+          <div class="skills-content">
+            <!-- Category 1: Languages -->
+            <div class="skill-card" id="skill-lang">
+              <div class="skill-card-head">
+                <div class="skill-card-icon">
+                  <svg class="icon icon-stroke" viewBox="0 0 24 24">
+                    <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
+                  </svg>
+                </div>
+                <h3 class="skill-card-title">Languages & Core</h3>
+              </div>
+              <div class="skill-items-list">
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+                  Java</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                  Python</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                    alt="JavaScript"> JavaScript</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                    alt="TypeScript"> TypeScript</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++">
+                  C++</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL">
+                  SQL</span>
+              </div>
+            </div>
+
+            <!-- Category 2: Frontend -->
+            <div class="skill-card" id="skill-front">
+              <div class="skill-card-head">
+                <div class="skill-card-icon">
+                  <svg class="icon icon-stroke" viewBox="0 0 24 24">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                    <polyline points="2 17 12 22 22 17" />
+                    <polyline points="2 12 12 17 22 12" />
+                  </svg>
+                </div>
+                <h3 class="skill-card-title">Frontend & UI</h3>
+              </div>
+              <div class="skill-items-list">
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+                  React</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js">
+                  Next.js</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                  HTML5</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+                  CSS3</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+                    alt="Tailwind CSS"> Tailwind</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg"
+                    alt="Three.js">
+                  Three.js</span>
+              </div>
+            </div>
+
+            <!-- Category 3: Backend -->
+            <div class="skill-card" id="skill-back">
+              <div class="skill-card-head">
+                <div class="skill-card-icon">
+                  <svg class="icon icon-stroke" viewBox="0 0 24 24">
+                    <rect x="2" y="2" width="20" height="8" rx="2" />
+                    <rect x="2" y="14" width="20" height="8" rx="2" />
+                    <line x1="6" y1="6" x2="6.01" y2="6" />
+                    <line x1="6" y1="18" x2="6.01" y2="18" />
+                  </svg>
+                </div>
+                <h3 class="skill-card-title">Backend & Systems</h3>
+              </div>
+              <div class="skill-items-list">
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+                  Node.js</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+                    alt="Express.js"> Express</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI">
+                  FastAPI</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg"
+                    alt="Apache Kafka"> Kafka</span>
+              </div>
+            </div>
+
+            <!-- Category 4: Databases -->
+            <div class="skill-card" id="skill-db">
+              <div class="skill-card-head">
+                <div class="skill-card-icon">
+                  <svg class="icon icon-stroke" viewBox="0 0 24 24">
+                    <ellipse cx="12" cy="5" rx="9" ry="3" />
+                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                  </svg>
+                </div>
+                <h3 class="skill-card-title">Databases & Storage</h3>
+              </div>
+              <div class="skill-items-list">
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                    alt="PostgreSQL"> PostgreSQL</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+                  MongoDB</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+                  MySQL</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis">
+                  Redis</span>
+              </div>
+            </div>
+
+            <!-- Category 5: Cloud & DevOps -->
+            <div class="skill-card" id="skill-cloud">
+              <div class="skill-card-head">
+                <div class="skill-card-icon">
+                  <svg class="icon icon-stroke" viewBox="0 0 24 24">
+                    <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+                  </svg>
+                </div>
+                <h3 class="skill-card-title">Cloud & Infrastructure</h3>
+              </div>
+              <div class="skill-items-list">
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
+                    alt="AWS"> AWS</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+                  Docker</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg"
+                    alt="Kubernetes"> Kubernetes</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"> Git</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
+                  Linux</span>
+              </div>
+            </div>
+
+            <!-- Category 6: AI & ML -->
+            <div class="skill-card" id="skill-ai">
+              <div class="skill-card-head">
+                <div class="skill-card-icon">
+                  <svg class="icon icon-stroke" viewBox="0 0 24 24">
+                    <path d="M12 2a10 10 0 1 0 10 10H12V2z" />
+                    <path d="M12 12L2.5 7.5" />
+                    <path d="M12 12v10" />
+                  </svg>
+                </div>
+                <h3 class="skill-card-title">AI & Machine Learning</h3>
+              </div>
+              <div class="skill-items-list">
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch">
+                  PyTorch</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="OpenCV">
+                  OpenCV</span>
+                <span class="skill-badge"><img class="skill-logo"
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="LangChain">
+                  LangChain</span>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div class="skills-content">
-          <!-- Category 1: Languages -->
-          <div class="skill-card" id="skill-lang">
-            <div class="skill-card-head">
-              <div class="skill-card-icon">
-                <svg class="icon icon-stroke" viewBox="0 0 24 24">
-                  <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
-                </svg>
-              </div>
-              <h3 class="skill-card-title">Languages & Core</h3>
-            </div>
-            <div class="skill-items-list">
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
-                Java</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-                Python</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                  alt="JavaScript"> JavaScript</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
-                  alt="TypeScript"> TypeScript</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++">
-                C++</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL">
-                SQL</span>
-            </div>
-          </div>
-
-          <!-- Category 2: Frontend -->
-          <div class="skill-card" id="skill-front">
-            <div class="skill-card-head">
-              <div class="skill-card-icon">
-                <svg class="icon icon-stroke" viewBox="0 0 24 24">
-                  <polygon points="12 2 2 7 12 12 22 7 12 2" />
-                  <polyline points="2 17 12 22 22 17" />
-                  <polyline points="2 12 12 17 22 12" />
-                </svg>
-              </div>
-              <h3 class="skill-card-title">Frontend & UI</h3>
-            </div>
-            <div class="skill-items-list">
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
-                React</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js">
-                Next.js</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
-                HTML5</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
-                CSS3</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
-                  alt="Tailwind CSS"> Tailwind</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg" alt="Three.js">
-                Three.js</span>
-            </div>
-          </div>
-
-          <!-- Category 3: Backend -->
-          <div class="skill-card" id="skill-back">
-            <div class="skill-card-head">
-              <div class="skill-card-icon">
-                <svg class="icon icon-stroke" viewBox="0 0 24 24">
-                  <rect x="2" y="2" width="20" height="8" rx="2" />
-                  <rect x="2" y="14" width="20" height="8" rx="2" />
-                  <line x1="6" y1="6" x2="6.01" y2="6" />
-                  <line x1="6" y1="18" x2="6.01" y2="18" />
-                </svg>
-              </div>
-              <h3 class="skill-card-title">Backend & Systems</h3>
-            </div>
-            <div class="skill-items-list">
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
-                Node.js</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
-                  alt="Express.js"> Express</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI">
-                FastAPI</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg"
-                  alt="Apache Kafka"> Kafka</span>
-            </div>
-          </div>
-
-          <!-- Category 4: Databases -->
-          <div class="skill-card" id="skill-db">
-            <div class="skill-card-head">
-              <div class="skill-card-icon">
-                <svg class="icon icon-stroke" viewBox="0 0 24 24">
-                  <ellipse cx="12" cy="5" rx="9" ry="3" />
-                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
-                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
-                </svg>
-              </div>
-              <h3 class="skill-card-title">Databases & Storage</h3>
-            </div>
-            <div class="skill-items-list">
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
-                  alt="PostgreSQL"> PostgreSQL</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
-                MongoDB</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
-                MySQL</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis">
-                Redis</span>
-            </div>
-          </div>
-
-          <!-- Category 5: Cloud & DevOps -->
-          <div class="skill-card" id="skill-cloud">
-            <div class="skill-card-head">
-              <div class="skill-card-icon">
-                <svg class="icon icon-stroke" viewBox="0 0 24 24">
-                  <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
-                </svg>
-              </div>
-              <h3 class="skill-card-title">Cloud & Infrastructure</h3>
-            </div>
-            <div class="skill-items-list">
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
-                  alt="AWS"> AWS</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
-                Docker</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg"
-                  alt="Kubernetes"> Kubernetes</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"> Git</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
-                Linux</span>
-            </div>
-          </div>
-
-          <!-- Category 6: AI & ML -->
-          <div class="skill-card" id="skill-ai">
-            <div class="skill-card-head">
-              <div class="skill-card-icon">
-                <svg class="icon icon-stroke" viewBox="0 0 24 24">
-                  <path d="M12 2a10 10 0 1 0 10 10H12V2z" />
-                  <path d="M12 12L2.5 7.5" />
-                  <path d="M12 12v10" />
-                </svg>
-              </div>
-              <h3 class="skill-card-title">AI & Machine Learning</h3>
-            </div>
-            <div class="skill-items-list">
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch">
-                PyTorch</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="OpenCV">
-                OpenCV</span>
-              <span class="skill-badge"><img class="skill-logo"
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="LangChain">
-                LangChain</span>
-            </div>
-          </div>
-        </div>
-      </div>
       </div>
     </section>
 
@@ -3260,7 +3327,7 @@
             <span>Featured Projects</span>
           </div>
           <h2 class="portfolio-h2 line-reveal-trigger">Selected Engineering Work</h2>
-          
+
           <div class="portfolio-filters" id="portfolio-filters">
             <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="ai">AI / ML</button>
@@ -3272,17 +3339,17 @@
         </div>
 
         <ul class="portfolio-grid">
-<li class="portfolio-item" data-category="web">
+          <li class="portfolio-item" data-category="web">
             <a href="https://shophere-eight.vercel.app/" target="_blank" rel="noopener" class="portfolio-card">
 
               <div class="portfolio-image-wrapper">
                 <img src="assets/shophere-mockup.png" alt="ShopHere preview" class="portfolio-bg-img" />
                 <div class="portfolio-meta-top">
-                  <span>Full-Stack App — 2026</span>
+                  <span>E-commerce App</span>
                   <div class="portfolio-badge">
                     <svg class="icon icon-stroke" viewBox="0 0 24 24">
-                    <path d="M7 17 17 7M8 7h9v9" />
-                  </svg>
+                      <path d="M7 17 17 7M8 7h9v9" />
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -3294,22 +3361,22 @@
                   <span class="tag-chip">Next.js</span>
                   <span class="tag-chip">React</span>
                   <span class="tag-chip">TailwindCSS</span>
+                </div>
+
               </div>
-            
-  </div>
-</a>
+            </a>
           </li>
-<li class="portfolio-item" data-category="security">
+          <li class="portfolio-item" data-category="security">
             <a href="https://capmap-three.vercel.app/" target="_blank" rel="noopener" class="portfolio-card">
 
               <div class="portfolio-image-wrapper">
                 <img src="assets/project-capmap.png" alt="CapMap preview" class="portfolio-bg-img" />
                 <div class="portfolio-meta-top">
-                  <span>AI Security Tool — 2026</span>
+                  <span>AI Security Tool</span>
                   <div class="portfolio-badge">
                     <svg class="icon icon-stroke" viewBox="0 0 24 24">
-                    <path d="M7 17 17 7M8 7h9v9" />
-                  </svg>
+                      <path d="M7 17 17 7M8 7h9v9" />
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -3321,48 +3388,51 @@
                   <span class="tag-chip">Python</span>
                   <span class="tag-chip">Generative AI</span>
                   <span class="tag-chip">Security</span>
+                </div>
+
               </div>
-            
-  </div>
-</a>
+            </a>
           </li>
-<li class="portfolio-item" data-category="security">
-            <a href="https://github-profile-health-auditor.jaggureddy0307.workers.dev/" target="_blank" rel="noopener" class="portfolio-card">
+          <li class="portfolio-item" data-category="security">
+            <a href="https://github-profile-health-auditor.jaggureddy0307.workers.dev/" target="_blank" rel="noopener"
+              class="portfolio-card">
 
               <div class="portfolio-image-wrapper">
-                <img src="assets/project-auditor.png" alt="GitHub Profile Health Auditor preview" class="portfolio-bg-img" />
+                <img src="assets/project-auditor.png" alt="GitHub Profile Health Auditor preview"
+                  class="portfolio-bg-img" />
                 <div class="portfolio-meta-top">
-                  <span>Security Tool — 2026</span>
+                  <span>Security Tool</span>
                   <div class="portfolio-badge">
                     <svg class="icon icon-stroke" viewBox="0 0 24 24">
-                    <path d="M7 17 17 7M8 7h9v9" />
-                  </svg>
+                      <path d="M7 17 17 7M8 7h9v9" />
+                    </svg>
                   </div>
                 </div>
               </div>
               <div class="portfolio-bottom">
                 <h3 class="portfolio-card-title">GitHub Profile Health Auditor</h3>
-                <p class="portfolio-card-desc">AI-powered engine performing multi-stage static analysis to uncover leaked secrets.</p>
+                <p class="portfolio-card-desc">AI-powered engine performing multi-stage static analysis to uncover
+                  leaked secrets.</p>
                 <div class="portfolio-tags">
                   <span class="tag-chip">TypeScript</span>
                   <span class="tag-chip">Cloudflare</span>
                   <span class="tag-chip">Security</span>
+                </div>
+
               </div>
-            
-  </div>
-</a>
+            </a>
           </li>
-<li class="portfolio-item" data-category="web">
+          <li class="portfolio-item" data-category="web">
             <a href="https://personalcodevault.vercel.app/" target="_blank" rel="noopener" class="portfolio-card">
 
               <div class="portfolio-image-wrapper">
                 <img src="assets/project-codevault.png" alt="CodeVault preview" class="portfolio-bg-img" />
                 <div class="portfolio-meta-top">
-                  <span>Web App — 2026</span>
+                  <span>Web App</span>
                   <div class="portfolio-badge">
                     <svg class="icon icon-stroke" viewBox="0 0 24 24">
-                    <path d="M7 17 17 7M8 7h9v9" />
-                  </svg>
+                      <path d="M7 17 17 7M8 7h9v9" />
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -3373,22 +3443,22 @@
                   <span class="tag-chip">Next.js</span>
                   <span class="tag-chip">TypeScript</span>
                   <span class="tag-chip">Tailwind</span>
+                </div>
+
               </div>
-            
-  </div>
-</a>
+            </a>
           </li>
-<li class="portfolio-item" data-category="web">
+          <li class="portfolio-item" data-category="web">
             <a href="https://github.com/jaggureddy11" target="_blank" rel="noopener" class="portfolio-card">
 
               <div class="portfolio-image-wrapper">
                 <img src="assets/project-claude.png" alt="Claude Token Counter preview" class="portfolio-bg-img" />
                 <div class="portfolio-meta-top">
-                  <span>AI Developer Tool — 2026</span>
+                  <span>Chrome Extension</span>
                   <div class="portfolio-badge">
                     <svg class="icon icon-stroke" viewBox="0 0 24 24">
-                    <path d="M7 17 17 7M8 7h9v9" />
-                  </svg>
+                      <path d="M7 17 17 7M8 7h9v9" />
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -3400,48 +3470,50 @@
                   <span class="tag-chip">Chrome Extension</span>
                   <span class="tag-chip">JavaScript</span>
                   <span class="tag-chip">AI Tools</span>
+                </div>
+
               </div>
-            
-  </div>
-</a>
+            </a>
           </li>
-<li class="portfolio-item" data-category="mobile">
-            <a href="https://github.com/jaggureddy11/MeasureCraft" target="_blank" rel="noopener" class="portfolio-card">
+          <li class="portfolio-item" data-category="mobile">
+            <a href="https://github.com/jaggureddy11/MeasureCraft" target="_blank" rel="noopener"
+              class="portfolio-card">
 
               <div class="portfolio-image-wrapper">
                 <img src="assets/project-measurecraft.png" alt="MeasureCraft preview" class="portfolio-bg-img" />
                 <div class="portfolio-meta-top">
-                  <span>Mobile AI App — 2026</span>
+                  <span>Mobile AI App</span>
                   <div class="portfolio-badge">
                     <svg class="icon icon-stroke" viewBox="0 0 24 24">
-                    <path d="M7 17 17 7M8 7h9v9" />
-                  </svg>
+                      <path d="M7 17 17 7M8 7h9v9" />
+                    </svg>
                   </div>
                 </div>
               </div>
               <div class="portfolio-bottom">
                 <h3 class="portfolio-card-title">MeasureCraft</h3>
-                <p class="portfolio-card-desc">AI-powered digital catalog, wood cost estimator, and quoting tool for furniture design.</p>
+                <p class="portfolio-card-desc">AI-powered digital catalog, wood cost estimator, and quoting tool for
+                  furniture design.</p>
                 <div class="portfolio-tags">
                   <span class="tag-chip">React Native</span>
                   <span class="tag-chip">Gemini AI</span>
                   <span class="tag-chip">Mobile</span>
+                </div>
+
               </div>
-            
-  </div>
-</a>
+            </a>
           </li>
-<li class="portfolio-item" data-category="ai">
+          <li class="portfolio-item" data-category="ai">
             <a href="https://ticket-routing-agent.vercel.app/" target="_blank" rel="noopener" class="portfolio-card">
 
               <div class="portfolio-image-wrapper">
                 <img src="assets/project-ticketrouter.png" alt="IT Ticket Router preview" class="portfolio-bg-img" />
                 <div class="portfolio-meta-top">
-                  <span>NLP Engine — 2026</span>
+                  <span>NLP Engine</span>
                   <div class="portfolio-badge">
                     <svg class="icon icon-stroke" viewBox="0 0 24 24">
-                    <path d="M7 17 17 7M8 7h9v9" />
-                  </svg>
+                      <path d="M7 17 17 7M8 7h9v9" />
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -3453,22 +3525,23 @@
                   <span class="tag-chip">FastAPI</span>
                   <span class="tag-chip">Python</span>
                   <span class="tag-chip">NLP / AI</span>
+                </div>
+
               </div>
-            
-  </div>
-</a>
+            </a>
           </li>
-<li class="portfolio-item" data-category="web">
-            <a href="https://addons.mozilla.org/en-US/firefox/addon/stayontrack-by-jaggu/" target="_blank" rel="noopener" class="portfolio-card">
+          <li class="portfolio-item" data-category="web">
+            <a href="https://addons.mozilla.org/en-US/firefox/addon/stayontrack-by-jaggu/" target="_blank"
+              rel="noopener" class="portfolio-card">
 
               <div class="portfolio-image-wrapper">
                 <img src="assets/project-stayontrack.png?v=3" alt="StayOnTrack preview" class="portfolio-bg-img" />
                 <div class="portfolio-meta-top">
-                  <span>Browser Tool — 2026</span>
+                  <span>Browser Extension</span>
                   <div class="portfolio-badge">
                     <svg class="icon icon-stroke" viewBox="0 0 24 24">
-                    <path d="M7 17 17 7M8 7h9v9" />
-                  </svg>
+                      <path d="M7 17 17 7M8 7h9v9" />
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -3480,49 +3553,50 @@
                   <span class="tag-chip">Chrome Extension</span>
                   <span class="tag-chip">JS</span>
                   <span class="tag-chip">UX</span>
+                </div>
+
               </div>
-            
-  </div>
-</a>
+            </a>
           </li>
-<li class="portfolio-item" data-category="backend">
-            <a href="https://github.com/jaggureddy11/Workflow-Orchestration-Platform" target="_blank" rel="noopener" class="portfolio-card">
+          <li class="portfolio-item" data-category="backend">
+            <a href="https://github.com/jaggureddy11/Workflow-Orchestration-Platform" target="_blank" rel="noopener"
+              class="portfolio-card">
 
               <div class="portfolio-image-wrapper">
-                <img src="assets/project-ewap.png" alt="Enterprise Workflow preview" class="portfolio-bg-img" />
+                <img src="assets/project-ewap1.jpeg" alt="Enterprise Workflow preview" class="portfolio-bg-img" />
                 <div class="portfolio-meta-top">
-                  <span>Distributed Systems — 2026</span>
+                  <span>Distributed Systems</span>
                   <div class="portfolio-badge">
                     <svg class="icon icon-stroke" viewBox="0 0 24 24">
-                    <path d="M7 17 17 7M8 7h9v9" />
-                  </svg>
+                      <path d="M7 17 17 7M8 7h9v9" />
+                    </svg>
                   </div>
                 </div>
               </div>
               <div class="portfolio-bottom">
-                <h3 class="portfolio-card-title">Enterprise Workflow</h3>
+                <h3 class="portfolio-card-title">Enterprise Workflow Automation</h3>
                 <p class="portfolio-card-desc">Distributed task orchestrator with Kafka, Node.js, and clean layered
                   microservice design.</p>
                 <div class="portfolio-tags">
                   <span class="tag-chip">Kafka</span>
                   <span class="tag-chip">Node.js</span>
                   <span class="tag-chip">System Architecture</span>
+                </div>
+
               </div>
-            
-  </div>
-</a>
+            </a>
           </li>
-<li class="portfolio-item" data-category="ai">
+          <li class="portfolio-item" data-category="ai">
             <a href="https://github.com/jaggureddy11/EchoVision" target="_blank" rel="noopener" class="portfolio-card">
 
               <div class="portfolio-image-wrapper">
                 <img src="assets/project-echovision.png" alt="EchoVision preview" class="portfolio-bg-img" />
                 <div class="portfolio-meta-top">
-                  <span>Computer Vision — 2026</span>
+                  <span>Smart Glasses</span>
                   <div class="portfolio-badge">
                     <svg class="icon icon-stroke" viewBox="0 0 24 24">
-                    <path d="M7 17 17 7M8 7h9v9" />
-                  </svg>
+                      <path d="M7 17 17 7M8 7h9v9" />
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -3534,12 +3608,12 @@
                   <span class="tag-chip">OpenCV</span>
                   <span class="tag-chip">Python</span>
                   <span class="tag-chip">AI Vision</span>
+                </div>
+
               </div>
-            
-  </div>
-</a>
+            </a>
           </li>
-</ul>
+        </ul>
       </div>
     </section>
 
@@ -3547,10 +3621,14 @@
     <!-- FEATURED POSTS -->
     <section id="featured" class="featured-section" style="padding: 8rem 0; background: var(--surface);">
       <div class="shell featured-inner">
-        
+
         <div class="featured-header" style="margin-bottom: 5rem; text-align: center;">
-          <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); font-weight: 600; margin-bottom: 1rem;">Writing</div>
-          <h2 class="featured-h2 line-reveal-trigger" style="font-family: 'Instrument Serif', serif; font-size: clamp(3.5rem, 8vw, 6rem); font-weight: 400; letter-spacing: -0.02em; line-height: 1; color: var(--foreground);">Thoughts & <br>deep dives.</h2>
+          <div
+            style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); font-weight: 600; margin-bottom: 1rem;">
+            Writing</div>
+          <h2 class="featured-h2 line-reveal-trigger"
+            style="font-family: 'Instrument Serif', serif; font-size: clamp(3.5rem, 8vw, 6rem); font-weight: 400; letter-spacing: -0.02em; line-height: 1; color: var(--foreground);">
+            Thoughts & <br>deep dives.</h2>
         </div>
 
         <style>
@@ -3562,50 +3640,92 @@
             padding: 3rem;
             text-decoration: none;
             transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
             border: 1px solid var(--line);
           }
+
           .insight-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
           }
+
           .insight-card:hover .insight-arrow {
             transform: translateX(4px);
           }
+
           .insight-arrow {
             transition: transform 0.3s ease;
           }
         </style>
 
-        <div class="featured-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
-          
-          <a href="https://www.linkedin.com/posts/jaggureddy_ai-machinelearning-loopengineering-share-7479988532590043136-cg7C/" target="_blank" rel="noopener" class="insight-card">
-            <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 1.5rem; font-weight: 600;">GenAI</div>
-            <h3 style="font-family: 'Instrument Serif', serif; font-size: 2.25rem; font-weight: 400; line-height: 1.1; color: var(--foreground); margin-bottom: 1.5rem; letter-spacing: -0.01em;">A concept that changed how I think about AI: Loop Engineering</h3>
-            <p style="font-size: 1.05rem; line-height: 1.6; color: rgba(17,17,17,0.65); margin-bottom: 3rem; flex-grow: 1;">Most people learned about prompt engineering — writing clear, specific instructions to get good outputs from an LLM. But it has a ceiling. Every failure means going back to the drawing board manually. Loop engineering is different...</p>
-            <div style="color: #0077b5; font-weight: 500; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem;">
-              Read on LinkedIn 
-              <svg class="insight-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <div class="featured-grid"
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+
+          <a href="https://www.linkedin.com/posts/jaggureddy_ai-machinelearning-loopengineering-share-7479988532590043136-cg7C/"
+            target="_blank" rel="noopener" class="insight-card">
+            <div
+              style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 1.5rem; font-weight: 600;">
+              GenAI</div>
+            <h3
+              style="font-family: 'Instrument Serif', serif; font-size: 2.25rem; font-weight: 400; line-height: 1.1; color: var(--foreground); margin-bottom: 1.5rem; letter-spacing: -0.01em;">
+              A concept that changed how I think about AI: Loop Engineering</h3>
+            <p
+              style="font-size: 1.05rem; line-height: 1.6; color: rgba(17,17,17,0.65); margin-bottom: 3rem; flex-grow: 1;">
+              Most people learned about prompt engineering — writing clear, specific instructions to get good outputs
+              from an LLM. But it has a ceiling. Every failure means going back to the drawing board manually. Loop
+              engineering is different...</p>
+            <div
+              style="color: #0077b5; font-weight: 500; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem;">
+              Read on LinkedIn
+              <svg class="insight-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </div>
           </a>
 
-          <a href="https://www.linkedin.com/posts/jaggureddy_appdevelopment-vibecoding-ai-share-7490901074426642432-GqwN/" target="_blank" rel="noopener" class="insight-card">
-            <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 1.5rem; font-weight: 600;">App Development</div>
-            <h3 style="font-family: 'Instrument Serif', serif; font-size: 2.25rem; font-weight: 400; line-height: 1.1; color: var(--foreground); margin-bottom: 1.5rem; letter-spacing: -0.01em;">6 Documents You Need Before Writing a Single Prompt</h3>
-            <p style="font-size: 1.05rem; line-height: 1.6; color: rgba(17,17,17,0.65); margin-bottom: 3rem; flex-grow: 1;">Most solo founders skip documentation and then wonder why their AI-generated MVP turns into a mess of random features and wasted tokens. The AI isn't guessing badly—it's guessing because nobody told it what to build.</p>
-            <div style="color: #0077b5; font-weight: 500; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem;">
-              Read on LinkedIn 
-              <svg class="insight-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <a href="https://www.linkedin.com/posts/jaggureddy_appdevelopment-vibecoding-ai-share-7490901074426642432-GqwN/"
+            target="_blank" rel="noopener" class="insight-card">
+            <div
+              style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 1.5rem; font-weight: 600;">
+              App Development</div>
+            <h3
+              style="font-family: 'Instrument Serif', serif; font-size: 2.25rem; font-weight: 400; line-height: 1.1; color: var(--foreground); margin-bottom: 1.5rem; letter-spacing: -0.01em;">
+              6 Documents You Need Before Writing a Single Prompt</h3>
+            <p
+              style="font-size: 1.05rem; line-height: 1.6; color: rgba(17,17,17,0.65); margin-bottom: 3rem; flex-grow: 1;">
+              Most solo founders skip documentation and then wonder why their AI-generated MVP turns into a mess of
+              random features and wasted tokens. The AI isn't guessing badly—it's guessing because nobody told it what
+              to build.</p>
+            <div
+              style="color: #0077b5; font-weight: 500; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem;">
+              Read on LinkedIn
+              <svg class="insight-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </div>
           </a>
 
-          <a href="https://www.linkedin.com/posts/jaggureddy_ai-softwareengineering-agenticengineering-share-7472913331666718721-SzR1/" target="_blank" rel="noopener" class="insight-card">
-            <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 1.5rem; font-weight: 600;">Agentic Engineering</div>
-            <h3 style="font-family: 'Instrument Serif', serif; font-size: 2.25rem; font-weight: 400; line-height: 1.1; color: var(--foreground); margin-bottom: 1.5rem; letter-spacing: -0.01em;">Why Verification Matters More Than Speed in AI Development</h3>
-            <p style="font-size: 1.05rem; line-height: 1.6; color: rgba(17,17,17,0.65); margin-bottom: 3rem; flex-grow: 1;">The difference between Vibe Coding, AI-Assisted Development, and Agentic Engineering isn't the AI—it's how confidently you can trust the output. Reliability matters more when the stakes are high.</p>
-            <div style="color: #0077b5; font-weight: 500; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem;">
-              Read on LinkedIn 
-              <svg class="insight-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <a href="https://www.linkedin.com/posts/jaggureddy_ai-softwareengineering-agenticengineering-share-7472913331666718721-SzR1/"
+            target="_blank" rel="noopener" class="insight-card">
+            <div
+              style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 1.5rem; font-weight: 600;">
+              Agentic Engineering</div>
+            <h3
+              style="font-family: 'Instrument Serif', serif; font-size: 2.25rem; font-weight: 400; line-height: 1.1; color: var(--foreground); margin-bottom: 1.5rem; letter-spacing: -0.01em;">
+              Why Verification Matters More Than Speed in AI Development</h3>
+            <p
+              style="font-size: 1.05rem; line-height: 1.6; color: rgba(17,17,17,0.65); margin-bottom: 3rem; flex-grow: 1;">
+              The difference between Vibe Coding, AI-Assisted Development, and Agentic Engineering isn't the AI—it's how
+              confidently you can trust the output. Reliability matters more when the stakes are high.</p>
+            <div
+              style="color: #0077b5; font-weight: 500; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem;">
+              Read on LinkedIn
+              <svg class="insight-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </div>
           </a>
 
@@ -3621,7 +3741,9 @@
             <span class="eyebrow-dot"></span>
             <span>Continuous Learning</span>
           </div>
-          <h2 class="certs-h2 line-reveal-trigger" style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; margin-top: 1rem;">Certifications & Awards</h2>
+          <h2 class="certs-h2 line-reveal-trigger"
+            style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; margin-top: 1rem;">
+            Certifications & Awards</h2>
         </div>
 
         <style>
@@ -3636,18 +3758,22 @@
             transition: transform 0.3s ease, background 0.3s ease;
             text-decoration: none;
           }
+
           .cert-card:hover {
             transform: translateY(-4px);
             background: var(--surface-2);
           }
+
           .cert-card:hover .cert-arrow {
             color: var(--foreground);
             transform: translateX(4px);
           }
+
           .cert-arrow {
             color: var(--muted);
             transition: transform 0.3s ease, color 0.3s ease;
           }
+
           .cert-logo-wrapper {
             width: 80px;
             height: 80px;
@@ -3659,6 +3785,7 @@
             border-radius: 1rem;
             flex-shrink: 0;
           }
+
           .cert-content-title {
             font-size: 1.5rem;
             color: var(--foreground);
@@ -3666,17 +3793,20 @@
             font-weight: 500;
             line-height: 1.2;
           }
+
           .cert-content-company {
             color: var(--muted);
             font-size: 1.125rem;
             margin: 0;
           }
+
           @media (max-width: 768px) {
             .cert-card {
               flex-direction: column;
               align-items: flex-start;
               gap: 1.5rem;
             }
+
             .cert-arrow {
               align-self: flex-end;
               margin-top: -3rem;
@@ -3688,42 +3818,59 @@
           <!-- Cert 1 -->
           <a href="https://verify.skilljar.com/c/oayeum6aecw8" target="_blank" rel="noopener" class="cert-card">
             <div class="cert-logo-wrapper">
-               <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" style="color: var(--foreground);"><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></svg>
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" style="color: var(--foreground);">
+                <path
+                  d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z" />
+              </svg>
             </div>
             <div class="cert-content" style="flex-grow: 1;">
               <h3 class="cert-content-title">AI Fluency: Framework & Foundations</h3>
               <p class="cert-content-company">Anthropic</p>
             </div>
             <div class="cert-arrow">
-               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </div>
           </a>
 
           <!-- Cert 2 -->
-          <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=D02E5D207658FF235B3FCE6BA7CD079ADB0BDC4BF6746E1BDCD88949DCCB2E88" target="_blank" rel="noopener" class="cert-card">
+          <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=D02E5D207658FF235B3FCE6BA7CD079ADB0BDC4BF6746E1BDCD88949DCCB2E88"
+            target="_blank" rel="noopener" class="cert-card">
             <div class="cert-logo-wrapper">
-               <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" style="color: #F80000;"><path d="M16.1 4H7.9C3.5 4 0 7.6 0 12c0 4.4 3.5 8 7.9 8h8.2c4.4 0 7.9-3.6 7.9-8 0-4.4-3.5-8-7.9-8zm0 13H7.9C5.1 17 2.9 14.8 2.9 12s2.2-5 5-5h8.2c2.8 0 5 2.2 5 5s-2.2 5-5 5z"/></svg>
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" style="color: #F80000;">
+                <path
+                  d="M16.1 4H7.9C3.5 4 0 7.6 0 12c0 4.4 3.5 8 7.9 8h8.2c4.4 0 7.9-3.6 7.9-8 0-4.4-3.5-8-7.9-8zm0 13H7.9C5.1 17 2.9 14.8 2.9 12s2.2-5 5-5h8.2c2.8 0 5 2.2 5 5s-2.2 5-5 5z" />
+              </svg>
             </div>
             <div class="cert-content" style="flex-grow: 1;">
               <h3 class="cert-content-title">Oracle Cloud Infrastructure 2025 Certified Foundations Associate</h3>
               <p class="cert-content-company">Oracle</p>
             </div>
             <div class="cert-arrow">
-               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </div>
           </a>
 
           <!-- Cert 3 -->
-          <a href="https://www.hackerrank.com/certificates/iframe/6faf151f9eee" target="_blank" rel="noopener" class="cert-card">
+          <a href="https://www.hackerrank.com/certificates/iframe/6faf151f9eee" target="_blank" rel="noopener"
+            class="cert-card">
             <div class="cert-logo-wrapper">
-               <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" style="color: #00EA64;"><path d="M0 0v24h24V0zm9.95 8.002h1.805c.061 0 .111.05.111.111v7.767c0 .061-.05.111-.11.111H9.95c-.061 0-.111-.05-.111-.11v-2.87H7.894v2.87c0 .06-.05.11-.11.11H5.976a.11.11 0 01-.11-.11V8.112c0-.06.05-.11.11-.11h1.806c.061 0 .11.05.11.11v2.869H9.84v-2.87c0-.06.05-.11.11-.11zm2.999 0h5.778c.061 0 .111.05.111.11v7.767a.11.11 0 01-.11.112h-5.78a.11.11 0 01-.11-.11V8.111c0-.06.05-.11.11-.11z"/></svg>
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" style="color: #00EA64;">
+                <path
+                  d="M0 0v24h24V0zm9.95 8.002h1.805c.061 0 .111.05.111.111v7.767c0 .061-.05.111-.11.111H9.95c-.061 0-.111-.05-.111-.11v-2.87H7.894v2.87c0 .06-.05.11-.11.11H5.976a.11.11 0 01-.11-.11V8.112c0-.06.05-.11.11-.11h1.806c.061 0 .11.05.11.11v2.869H9.84v-2.87c0-.06.05-.11.11-.11zm2.999 0h5.778c.061 0 .111.05.111.11v7.767a.11.11 0 01-.11.112h-5.78a.11.11 0 01-.11-.11V8.111c0-.06.05-.11.11-.11z" />
+              </svg>
             </div>
             <div class="cert-content" style="flex-grow: 1;">
               <h3 class="cert-content-title">HackerRank Certificate</h3>
               <p class="cert-content-company">HackerRank</p>
             </div>
             <div class="cert-arrow">
-               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </div>
           </a>
         </div>
@@ -3740,40 +3887,41 @@
           </div>
           <h2 class="services-h2 line-reveal-trigger">How I Work</h2>
         </div>
-        
+
         <div class="services-track-container">
           <ul class="services-list" id="methodology-track">
-          <li class="service-item">
-            <div class="service-row">
-              <span class="service-index">01</span>
-              <h3 class="service-title">Discover</h3>
-              <p class="service-desc">Understand the problem before writing a line of code: constraints, users, edge cases.</p>
-            </div>
-          </li>
+            <li class="service-item">
+              <div class="service-row">
+                <span class="service-index">01</span>
+                <h3 class="service-title">Discover</h3>
+                <p class="service-desc">Understand the problem before writing a line of code: constraints, users, edge
+                  cases.</p>
+              </div>
+            </li>
 
-          <li class="service-item">
-            <div class="service-row">
-              <span class="service-index">02</span>
-              <h3 class="service-title">Design</h3>
-              <p class="service-desc">Sketch the architecture: data flow, API contracts, failure modes.</p>
-            </div>
-          </li>
+            <li class="service-item">
+              <div class="service-row">
+                <span class="service-index">02</span>
+                <h3 class="service-title">Design</h3>
+                <p class="service-desc">Sketch the architecture: data flow, API contracts, failure modes.</p>
+              </div>
+            </li>
 
-          <li class="service-item">
-            <div class="service-row">
-              <span class="service-index">03</span>
-              <h3 class="service-title">Build</h3>
-              <p class="service-desc">Ship in small, testable increments with clean, typed, documented code.</p>
-            </div>
-          </li>
+            <li class="service-item">
+              <div class="service-row">
+                <span class="service-index">03</span>
+                <h3 class="service-title">Build</h3>
+                <p class="service-desc">Ship in small, testable increments with clean, typed, documented code.</p>
+              </div>
+            </li>
 
-          <li class="service-item">
-            <div class="service-row">
-              <span class="service-index">04</span>
-              <h3 class="service-title">Iterate</h3>
-              <p class="service-desc">Instrument, measure, and refine based on real usage.</p>
-            </div>
-          </li>
+            <li class="service-item">
+              <div class="service-row">
+                <span class="service-index">04</span>
+                <h3 class="service-title">Iterate</h3>
+                <p class="service-desc">Instrument, measure, and refine based on real usage.</p>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
@@ -3841,7 +3989,8 @@
   <div id="nav-menu" class="nav-menu" role="dialog" aria-modal="true" aria-label="Navigation Menu">
     <div class="shell nav-menu-top">
       <div class="header-brand">
-        <img src="assets/logo.jpg" alt="Logo" style="width: 1.75rem; height: 1.75rem; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.1);" />
+        <img src="assets/logo.jpg" alt="Logo"
+          style="width: 1.75rem; height: 1.75rem; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.1);" />
         <span>JWR</span>
       </div>
       <button id="close-menu-btn" class="close-btn">
@@ -4086,7 +4235,7 @@
         setTimeout(exitLoader, 100);
       }
     }
-    
+
     if (localStorage.getItem('jwr-loader-seen')) {
       loaderFill.style.width = '100%';
       loaderCounter.textContent = '100';
@@ -4388,11 +4537,11 @@
             const wrap = document.createElement('span');
             wrap.className = 'word-wrap';
             wrap.style.marginRight = '0.3em';
-            
+
             const inner = document.createElement('span');
             inner.className = 'word-inner';
             inner.textContent = w;
-            
+
             wrap.appendChild(inner);
             h2.appendChild(wrap);
           });
@@ -4403,12 +4552,12 @@
             const wrap = document.createElement('span');
             wrap.className = 'word-wrap';
             wrap.style.marginRight = '0.3em';
-            
+
             const inner = document.createElement('span');
             inner.className = 'word-inner';
             if (colorStyle) inner.style.cssText = colorStyle;
             inner.textContent = w;
-            
+
             wrap.appendChild(inner);
             h2.appendChild(wrap);
           });
@@ -4519,7 +4668,7 @@
       // Skills Sticky Nav Observer & OptionWheel Logic
       const skillCards = document.querySelectorAll('.skill-card');
       const navItems = document.querySelectorAll('.skills-nav-item');
-      
+
       if (skillCards.length > 0 && navItems.length > 0) {
         let currentIdx = 0;
         let targetIdx = 0;
@@ -4543,7 +4692,7 @@
         function runFrame(now) {
           const dt = Math.min((now - lastTime) / 1000, 0.05);
           lastTime = now;
-          
+
           const tau = Math.max(cfg.smoothing, 1) / 1000;
           const k = 1 - Math.exp(-dt / tau);
 
@@ -4555,18 +4704,18 @@
           navItems.forEach((el, i) => {
             let d = i - next;
             const dist = Math.abs(d);
-            
+
             let x = 0;
             let y = d * cfg.rowH;
             let rot = 0;
-            
+
             if (R > 0) {
               const ang = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, d * tiltRad));
               y = R * Math.sin(ang);
               x = -R * (1 - Math.cos(ang)) * cfg.curve;
               rot = (ang * 180) / Math.PI;
             }
-            
+
             el.style.transform = `translate(${x.toFixed(2)}px, calc(${y.toFixed(2)}px - 50%)) rotate(${rot.toFixed(3)}deg)`;
             el.style.opacity = String(Math.max(cfg.minOpacity, 1 - dist * cfg.fade));
             el.style.filter = cfg.blur > 0 ? `blur(${(dist * cfg.blur).toFixed(2)}px)` : 'none';
@@ -4594,7 +4743,7 @@
 
         const skillsTrack = document.getElementById('skills-track');
         let isDesktop = window.innerWidth >= 1024;
-        
+
         window.addEventListener('resize', () => {
           const wasDesktop = isDesktop;
           isDesktop = window.innerWidth >= 1024;
@@ -4627,11 +4776,11 @@
         // Auto-scroll logic for desktop carousel
         let autoScrollInterval;
         let autoScrollIdx = 0;
-        
+
         function updateActiveCard(idx) {
           autoScrollIdx = idx;
           applyTarget(autoScrollIdx);
-          
+
           skillCards.forEach((card, i) => {
             if (i === autoScrollIdx) {
               card.classList.add('in-view');
@@ -4649,17 +4798,17 @@
             updateActiveCard(nextIdx);
           }, 750); // 0.75 seconds per slide
         }
-        
+
         function stopAutoScroll() {
           clearInterval(autoScrollInterval);
         }
-        
+
         // Initialize first card on desktop
         let isSectionInView = false;
         if (isDesktop) {
           updateActiveCard(0);
         }
-        
+
         // Intersection Observer & Hover / Wheel controls
         const skillsSectionNode = document.getElementById('skills');
         if (skillsSectionNode) {
@@ -4681,51 +4830,51 @@
           skillsSectionNode.addEventListener('mouseleave', () => {
             if (isDesktop) startAutoScroll();
           });
-          
+
           let wheelThrottle;
           skillsSectionNode.addEventListener('wheel', (e) => {
             if (!isDesktop) return;
-            
+
             // Allow native scroll if scrolling past the bounds
             const isScrollingDown = e.deltaY > 0;
             const isScrollingUp = e.deltaY < 0;
             const atEnd = autoScrollIdx === skillCards.length - 1;
             const atStart = autoScrollIdx === 0;
-            
+
             if ((isScrollingDown && atEnd) || (isScrollingUp && atStart)) {
               return; // let native scroll happen to exit section
             }
-            
+
             e.preventDefault(); // Trap scroll to navigate cards
-            
+
             if (wheelThrottle) return;
             stopAutoScroll();
-            
+
             if (isScrollingDown) {
-               updateActiveCard(autoScrollIdx + 1);
+              updateActiveCard(autoScrollIdx + 1);
             } else if (isScrollingUp) {
-               updateActiveCard(autoScrollIdx - 1);
+              updateActiveCard(autoScrollIdx - 1);
             }
-            
+
             wheelThrottle = setTimeout(() => {
-               wheelThrottle = null;
+              wheelThrottle = null;
             }, 600); // Cooldown to prevent runaway scrolling
-            
+
           }, { passive: false });
         }
-        
+
         // Click navigation
         navItems.forEach((nav, idx) => {
           nav.addEventListener('click', () => {
             if (isDesktop) {
-               updateActiveCard(idx);
+              updateActiveCard(idx);
             } else {
-               applyTarget(idx); 
-               const target = document.getElementById(nav.dataset.target);
-               if (target) {
-                 const y = target.getBoundingClientRect().top + window.scrollY - 150;
-                 window.scrollTo({ top: y, behavior: 'smooth' });
-               }
+              applyTarget(idx);
+              const target = document.getElementById(nav.dataset.target);
+              if (target) {
+                const y = target.getBoundingClientRect().top + window.scrollY - 150;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+              }
             }
           });
         });
@@ -4928,14 +5077,14 @@
       cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
           const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left; 
-          const y = e.clientY - rect.top;  
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
           const centerX = rect.width / 2;
           const centerY = rect.height / 2;
-          
-          const rotateX = ((y - centerY) / centerY) * -10; 
+
+          const rotateX = ((y - centerY) / centerY) * -10;
           const rotateY = ((x - centerX) / centerX) * 10;
-          
+
           card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
           card.style.transition = 'none';
         });
@@ -4984,17 +5133,17 @@
 
       window.addEventListener('scroll', () => {
         const rect = section.getBoundingClientRect();
-        
+
         // Calculate vertical scroll progress through the section
         const maxScroll = section.offsetHeight - window.innerHeight;
         let scrollProgress = -rect.top / maxScroll;
-        
+
         // clamp progress between 0 and 1
         scrollProgress = Math.max(0, Math.min(1, scrollProgress));
-        
+
         // Calculate max translate
         const maxTranslate = track.scrollWidth - window.innerWidth;
-        
+
         if (maxTranslate > 0) {
           if (rect.top <= 0 && scrollProgress <= 1) {
             track.style.transform = `translateX(${-scrollProgress * maxTranslate}px)`;
