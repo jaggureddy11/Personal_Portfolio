@@ -2855,7 +2855,6 @@
         <canvas id="liquid-canvas" class="liquid-canvas" aria-hidden="true"></canvas>
       </div>
       <div class="hero-vignette"></div>
-      <div id="hero-watermark" class="hero-watermark">JWR</div>
 
       <div class="shell hero-grid">
         <div class="hero-left">
@@ -4342,7 +4341,8 @@
         });
       }, 250);
 
-      setTimeout(() => document.getElementById('hero-watermark').classList.add('ready'), 300);
+      const watermark = document.getElementById('hero-watermark');
+      if (watermark) setTimeout(() => watermark.classList.add('ready'), 300);
       setTimeout(() => document.getElementById('hero-rating').classList.add('ready'), 650);
       setTimeout(() => document.getElementById('hero-ctas').classList.add('ready'), 750);
       setTimeout(() => document.getElementById('hero-status').classList.add('ready'), 900);
