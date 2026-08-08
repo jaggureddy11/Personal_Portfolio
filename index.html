@@ -3354,20 +3354,70 @@
     </section>
 
     <!-- FEATURED POSTS -->
-    <section id="featured" class="featured-section" style="padding: 6rem 0; background: var(--surface);">
+    <section id="featured" class="featured-section" style="padding: 8rem 0; background: var(--surface);">
       <div class="shell featured-inner">
-        <div class="featured-header" style="margin-bottom: 3rem; text-align: center;">
-          <div class="eyebrow dark eyebrow-pill" style="margin: 0 auto 1rem auto; display: inline-flex;">
-            <span class="eyebrow-dot"></span>
-            <span>Latest Updates</span>
-          </div>
-          <h2 class="featured-h2 line-reveal-trigger" style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1;">Featured Insights</h2>
+        
+        <div class="featured-header" style="margin-bottom: 5rem; text-align: center;">
+          <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); font-weight: 600; margin-bottom: 1rem;">Writing</div>
+          <h2 class="featured-h2 line-reveal-trigger" style="font-family: 'Instrument Serif', serif; font-size: clamp(3.5rem, 8vw, 6rem); font-weight: 400; letter-spacing: -0.02em; line-height: 1; color: var(--foreground);">Thoughts & <br>deep dives.</h2>
         </div>
 
-        <div class="featured-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2.5rem;">
-          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7479988532590043136" height="550" width="100%" frameborder="0" allowfullscreen="" title="Embedded post 1" style="border-radius: 1.5rem; border: 1px solid var(--line); background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.02); transition: transform 0.3s ease;"></iframe>
-          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7490901074426642432" height="550" width="100%" frameborder="0" allowfullscreen="" title="Embedded post 2" style="border-radius: 1.5rem; border: 1px solid var(--line); background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.02); transition: transform 0.3s ease;"></iframe>
-          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7472913331666718721" height="600" width="100%" frameborder="0" allowfullscreen="" title="Embedded post 3" style="border-radius: 1.5rem; border: 1px solid var(--line); background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.02); transition: transform 0.3s ease;"></iframe>
+        <style>
+          .insight-card {
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+            border-radius: 2rem;
+            padding: 3rem;
+            text-decoration: none;
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            border: 1px solid var(--line);
+          }
+          .insight-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+          }
+          .insight-card:hover .insight-arrow {
+            transform: translateX(4px);
+          }
+          .insight-arrow {
+            transition: transform 0.3s ease;
+          }
+        </style>
+
+        <div class="featured-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+          
+          <a href="https://www.linkedin.com/posts/jaggureddy_ai-machinelearning-loopengineering-share-7479988532590043136-cg7C/" target="_blank" rel="noopener" class="insight-card">
+            <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 1.5rem; font-weight: 600;">GenAI</div>
+            <h3 style="font-family: 'Instrument Serif', serif; font-size: 2.25rem; font-weight: 400; line-height: 1.1; color: var(--foreground); margin-bottom: 1.5rem; letter-spacing: -0.01em;">A concept that changed how I think about AI: Loop Engineering</h3>
+            <p style="font-size: 1.05rem; line-height: 1.6; color: rgba(17,17,17,0.65); margin-bottom: 3rem; flex-grow: 1;">Most people learned about prompt engineering — writing clear, specific instructions to get good outputs from an LLM. But it has a ceiling. Every failure means going back to the drawing board manually. Loop engineering is different...</p>
+            <div style="color: #0077b5; font-weight: 500; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem;">
+              Read on LinkedIn 
+              <svg class="insight-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/posts/jaggureddy_appdevelopment-vibecoding-ai-share-7490901074426642432-GqwN/" target="_blank" rel="noopener" class="insight-card">
+            <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 1.5rem; font-weight: 600;">App Development</div>
+            <h3 style="font-family: 'Instrument Serif', serif; font-size: 2.25rem; font-weight: 400; line-height: 1.1; color: var(--foreground); margin-bottom: 1.5rem; letter-spacing: -0.01em;">6 Documents You Need Before Writing a Single Prompt</h3>
+            <p style="font-size: 1.05rem; line-height: 1.6; color: rgba(17,17,17,0.65); margin-bottom: 3rem; flex-grow: 1;">Most solo founders skip documentation and then wonder why their AI-generated MVP turns into a mess of random features and wasted tokens. The AI isn't guessing badly—it's guessing because nobody told it what to build.</p>
+            <div style="color: #0077b5; font-weight: 500; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem;">
+              Read on LinkedIn 
+              <svg class="insight-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/posts/jaggureddy_ai-softwareengineering-agenticengineering-share-7472913331666718721-SzR1/" target="_blank" rel="noopener" class="insight-card">
+            <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 1.5rem; font-weight: 600;">Agentic Engineering</div>
+            <h3 style="font-family: 'Instrument Serif', serif; font-size: 2.25rem; font-weight: 400; line-height: 1.1; color: var(--foreground); margin-bottom: 1.5rem; letter-spacing: -0.01em;">Why Verification Matters More Than Speed in AI Development</h3>
+            <p style="font-size: 1.05rem; line-height: 1.6; color: rgba(17,17,17,0.65); margin-bottom: 3rem; flex-grow: 1;">The difference between Vibe Coding, AI-Assisted Development, and Agentic Engineering isn't the AI—it's how confidently you can trust the output. Reliability matters more when the stakes are high.</p>
+            <div style="color: #0077b5; font-weight: 500; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem;">
+              Read on LinkedIn 
+              <svg class="insight-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+
         </div>
       </div>
     </section>
