@@ -2790,15 +2790,7 @@
         R Jagadishwar Reddy
       </div>
     </div>
-    <div class="loader-progress-block">
-      <div class="loader-track">
-        <div id="loader-fill" class="loader-fill"></div>
-      </div>
-      <div class="loader-meta">
-        <span>Loading</span>
-        <span id="loader-counter" class="loader-counter">000</span>
-      </div>
-    </div>
+
   </div>
 
   <!-- ==================================================== -->
@@ -4242,8 +4234,6 @@
     // 3. Loader Countdown & Exit
     stopScroll();
     const loaderEl = document.getElementById('loader');
-    const loaderFill = document.getElementById('loader-fill');
-    const loaderCounter = document.getElementById('loader-counter');
     const FILL_MS = 1300;
     const startTime = performance.now();
 
@@ -4309,8 +4299,6 @@
       const t = Math.min(elapsed / FILL_MS, 1);
       const progress = Math.round(easeInOutCubic(t) * 100);
 
-      loaderFill.style.width = progress + '%';
-      loaderCounter.textContent = String(progress).padStart(3, '0');
 
       if (t < 1) {
         requestAnimationFrame(updateLoader);
@@ -4321,8 +4309,6 @@
     }
 
     if (localStorage.getItem('jwr-loader-seen')) {
-      loaderFill.style.width = '100%';
-      loaderCounter.textContent = '100';
       exitLoader();
     } else {
       localStorage.setItem('jwr-loader-seen', 'true');
