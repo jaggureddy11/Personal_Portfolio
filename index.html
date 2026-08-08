@@ -1353,43 +1353,35 @@
     }
 
     .portfolio-card {
-      position: relative;
-      min-height: 22rem;
-      overflow: hidden;
-      border-radius: var(--radius-card);
-      background: var(--ink);
-      padding: 1.5rem;
-      color: #ffffff;
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 1rem;
+      text-decoration: none;
       transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
-    /* Removed weak gradient overlay */
+    .portfolio-image-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--line);
+    }
 
     .portfolio-bg-img {
-      position: absolute;
-      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 1;
-      z-index: 0;
-      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-
-    @media (min-width: 640px) {
-      .portfolio-card {
-        min-height: 26rem;
-        padding: 2rem;
-      }
+      object-position: top;
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
     @media (hover: hover) {
-      .portfolio-card:hover {
-        transform: translateY(-8px) scale(1.012);
+      .portfolio-card:hover .portfolio-image-wrapper {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.06);
       }
       .portfolio-card:hover .portfolio-bg-img {
         transform: scale(1.05);
@@ -1397,13 +1389,13 @@
     }
 
     .portfolio-meta-top {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      right: 1rem;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.025em;
-      position: relative;
       z-index: 2;
     }
 
@@ -1412,15 +1404,18 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       color: #fff;
-      padding: 0.4rem 0.8rem;
+      padding: 0.35rem 0.8rem;
       border-radius: 2rem;
       font-weight: 600;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .portfolio-badge {
-      width: 2.75rem;
-      height: 2.75rem;
+      width: 2.5rem;
+      height: 2.5rem;
       display: grid;
       place-items: center;
       border-radius: var(--radius-pill);
@@ -1429,8 +1424,8 @@
       -webkit-backdrop-filter: blur(12px);
       color: #ffffff;
       border: 1px solid rgba(255, 255, 255, 0.15);
-      font-size: 1.125rem;
-      transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      font-size: 1rem;
+      transition: transform 0.35s ease, background 0.35s ease, color 0.35s ease;
     }
 
     @media (hover: hover) {
@@ -3264,16 +3259,19 @@
         <ul class="portfolio-grid">
 <li class="portfolio-item" data-category="ai">
             <a href="https://ticket-routing-agent.vercel.app/" target="_blank" rel="noopener" class="portfolio-card">
-              <img src="assets/project-ticketrouter.png" alt="IT Ticket Router preview" class="portfolio-bg-img" />
-              <div class="portfolio-meta-top">
-                <span>NLP Engine — 2026</span>
-                <div class="portfolio-badge">
-                  <svg class="icon icon-stroke" viewBox="0 0 24 24">
+
+              <div class="portfolio-image-wrapper">
+                <img src="assets/project-ticketrouter.png" alt="IT Ticket Router preview" class="portfolio-bg-img" />
+                <div class="portfolio-meta-top">
+                  <span>NLP Engine — 2026</span>
+                  <div class="portfolio-badge">
+                    <svg class="icon icon-stroke" viewBox="0 0 24 24">
                     <path d="M7 17 17 7M8 7h9v9" />
                   </svg>
+                  </div>
                 </div>
               </div>
-              <div class="portfolio-bottom" style="position:relative; z-index:2;">
+              <div class="portfolio-bottom">
                 <h3 class="portfolio-card-title">IT Ticket Router</h3>
                 <p class="portfolio-card-desc">Zero-shot NLP ticket routing engine built with FastAPI and Python for
                   automated IT triage.</p>
@@ -3281,24 +3279,28 @@
                   <span class="tag-chip">FastAPI</span>
                   <span class="tag-chip">Python</span>
                   <span class="tag-chip">NLP / AI</span>
-                </div>
               </div>
-            </a>
+            
+  </div>
+</a>
           </li>
 
           
 <li class="portfolio-item" data-category="security">
             <a href="https://capmap-three.vercel.app/" target="_blank" rel="noopener" class="portfolio-card">
-              <img src="assets/project-capmap.png" alt="CapMap preview" class="portfolio-bg-img" />
-              <div class="portfolio-meta-top">
-                <span>AI Security Tool — 2026</span>
-                <div class="portfolio-badge">
-                  <svg class="icon icon-stroke" viewBox="0 0 24 24">
+
+              <div class="portfolio-image-wrapper">
+                <img src="assets/project-capmap.png" alt="CapMap preview" class="portfolio-bg-img" />
+                <div class="portfolio-meta-top">
+                  <span>AI Security Tool — 2026</span>
+                  <div class="portfolio-badge">
+                    <svg class="icon icon-stroke" viewBox="0 0 24 24">
                     <path d="M7 17 17 7M8 7h9v9" />
                   </svg>
+                  </div>
                 </div>
               </div>
-              <div class="portfolio-bottom" style="position:relative; z-index:2;">
+              <div class="portfolio-bottom">
                 <h3 class="portfolio-card-title">CapMap</h3>
                 <p class="portfolio-card-desc">AI-assisted API key discovery tool automating secret detection and
                   security configuration.</p>
@@ -3306,71 +3308,83 @@
                   <span class="tag-chip">Python</span>
                   <span class="tag-chip">Generative AI</span>
                   <span class="tag-chip">Security</span>
-                </div>
               </div>
-            </a>
+            
+  </div>
+</a>
           </li>
 
           
 <li class="portfolio-item" data-category="security">
             <a href="https://github-profile-health-auditor.jaggureddy0307.workers.dev/" target="_blank" rel="noopener" class="portfolio-card">
-              <img src="assets/project-auditor.png" alt="GitHub Profile Health Auditor preview" class="portfolio-bg-img" />
-              <div class="portfolio-meta-top">
-                <span>Security Tool — 2026</span>
-                <div class="portfolio-badge">
-                  <svg class="icon icon-stroke" viewBox="0 0 24 24">
+
+              <div class="portfolio-image-wrapper">
+                <img src="assets/project-auditor.png" alt="GitHub Profile Health Auditor preview" class="portfolio-bg-img" />
+                <div class="portfolio-meta-top">
+                  <span>Security Tool — 2026</span>
+                  <div class="portfolio-badge">
+                    <svg class="icon icon-stroke" viewBox="0 0 24 24">
                     <path d="M7 17 17 7M8 7h9v9" />
                   </svg>
+                  </div>
                 </div>
               </div>
-              <div class="portfolio-bottom" style="position:relative; z-index:2;">
+              <div class="portfolio-bottom">
                 <h3 class="portfolio-card-title">GitHub Profile Health Auditor</h3>
                 <p class="portfolio-card-desc">AI-powered engine performing multi-stage static analysis to uncover leaked secrets.</p>
                 <div class="portfolio-tags">
                   <span class="tag-chip">TypeScript</span>
                   <span class="tag-chip">Cloudflare</span>
                   <span class="tag-chip">Security</span>
-                </div>
               </div>
-            </a>
+            
+  </div>
+</a>
           </li>
 
           
 <li class="portfolio-item" data-category="web">
             <a href="https://personalcodevault.vercel.app/" target="_blank" rel="noopener" class="portfolio-card">
-              <img src="assets/project-codevault.png" alt="CodeVault preview" class="portfolio-bg-img" />
-              <div class="portfolio-meta-top">
-                <span>Web App — 2026</span>
-                <div class="portfolio-badge">
-                  <svg class="icon icon-stroke" viewBox="0 0 24 24">
+
+              <div class="portfolio-image-wrapper">
+                <img src="assets/project-codevault.png" alt="CodeVault preview" class="portfolio-bg-img" />
+                <div class="portfolio-meta-top">
+                  <span>Web App — 2026</span>
+                  <div class="portfolio-badge">
+                    <svg class="icon icon-stroke" viewBox="0 0 24 24">
                     <path d="M7 17 17 7M8 7h9v9" />
                   </svg>
+                  </div>
                 </div>
               </div>
-              <div class="portfolio-bottom" style="position:relative; z-index:2;">
+              <div class="portfolio-bottom">
                 <h3 class="portfolio-card-title">Code Vault</h3>
                 <p class="portfolio-card-desc">High performance management for your elite code snippets.</p>
                 <div class="portfolio-tags">
                   <span class="tag-chip">Next.js</span>
                   <span class="tag-chip">TypeScript</span>
                   <span class="tag-chip">Tailwind</span>
-                </div>
               </div>
-            </a>
+            
+  </div>
+</a>
           </li>
         
 <li class="portfolio-item" data-category="web">
             <a href="https://addons.mozilla.org/en-US/firefox/addon/stayontrack-by-jaggu/" target="_blank" rel="noopener" class="portfolio-card">
-              <img src="assets/project-stayontrack.png?v=3" alt="StayOnTrack preview" class="portfolio-bg-img" />
-              <div class="portfolio-meta-top">
-                <span>Browser Tool — 2026</span>
-                <div class="portfolio-badge">
-                  <svg class="icon icon-stroke" viewBox="0 0 24 24">
+
+              <div class="portfolio-image-wrapper">
+                <img src="assets/project-stayontrack.png?v=3" alt="StayOnTrack preview" class="portfolio-bg-img" />
+                <div class="portfolio-meta-top">
+                  <span>Browser Tool — 2026</span>
+                  <div class="portfolio-badge">
+                    <svg class="icon icon-stroke" viewBox="0 0 24 24">
                     <path d="M7 17 17 7M8 7h9v9" />
                   </svg>
+                  </div>
                 </div>
               </div>
-              <div class="portfolio-bottom" style="position:relative; z-index:2;">
+              <div class="portfolio-bottom">
                 <h3 class="portfolio-card-title">StayOnTrack</h3>
                 <p class="portfolio-card-desc">Focus & eye-care browser extension designed to protect developer
                   productivity and health.</p>
@@ -3378,24 +3392,28 @@
                   <span class="tag-chip">Chrome Extension</span>
                   <span class="tag-chip">JS</span>
                   <span class="tag-chip">UX</span>
-                </div>
               </div>
-            </a>
+            
+  </div>
+</a>
           </li>
 
           
 <li class="portfolio-item" data-category="web">
             <a href="https://shophere-eight.vercel.app/" target="_blank" rel="noopener" class="portfolio-card">
-              <img src="assets/shophere-mockup.png" alt="ShopHere preview" class="portfolio-bg-img" />
-              <div class="portfolio-meta-top">
-                <span>Full-Stack App — 2026</span>
-                <div class="portfolio-badge">
-                  <svg class="icon icon-stroke" viewBox="0 0 24 24">
+
+              <div class="portfolio-image-wrapper">
+                <img src="assets/shophere-mockup.png" alt="ShopHere preview" class="portfolio-bg-img" />
+                <div class="portfolio-meta-top">
+                  <span>Full-Stack App — 2026</span>
+                  <div class="portfolio-badge">
+                    <svg class="icon icon-stroke" viewBox="0 0 24 24">
                     <path d="M7 17 17 7M8 7h9v9" />
                   </svg>
+                  </div>
                 </div>
               </div>
-              <div class="portfolio-bottom" style="position:relative; z-index:2;">
+              <div class="portfolio-bottom">
                 <h3 class="portfolio-card-title">ShopHere</h3>
                 <p class="portfolio-card-desc">Next.js Storefront App built with clean architecture, high performance,
                   and smooth modern UX.</p>
@@ -3403,23 +3421,27 @@
                   <span class="tag-chip">Next.js</span>
                   <span class="tag-chip">React</span>
                   <span class="tag-chip">TailwindCSS</span>
-                </div>
               </div>
-            </a>
+            
+  </div>
+</a>
           </li>
 
           <li class="portfolio-item" data-category="backend">
             <a href="https://github.com/jaggureddy11/Workflow-Orchestration-Platform" target="_blank" rel="noopener" class="portfolio-card">
-              <img src="assets/project-ewap.png" alt="Enterprise Workflow preview" class="portfolio-bg-img" />
-              <div class="portfolio-meta-top">
-                <span>Distributed Systems — 2026</span>
-                <div class="portfolio-badge">
-                  <svg class="icon icon-stroke" viewBox="0 0 24 24">
+
+              <div class="portfolio-image-wrapper">
+                <img src="assets/project-ewap.png" alt="Enterprise Workflow preview" class="portfolio-bg-img" />
+                <div class="portfolio-meta-top">
+                  <span>Distributed Systems — 2026</span>
+                  <div class="portfolio-badge">
+                    <svg class="icon icon-stroke" viewBox="0 0 24 24">
                     <path d="M7 17 17 7M8 7h9v9" />
                   </svg>
+                  </div>
                 </div>
               </div>
-              <div class="portfolio-bottom" style="position:relative; z-index:2;">
+              <div class="portfolio-bottom">
                 <h3 class="portfolio-card-title">Enterprise Workflow</h3>
                 <p class="portfolio-card-desc">Distributed task orchestrator with Kafka, Node.js, and clean layered
                   microservice design.</p>
@@ -3427,24 +3449,28 @@
                   <span class="tag-chip">Kafka</span>
                   <span class="tag-chip">Node.js</span>
                   <span class="tag-chip">System Architecture</span>
-                </div>
               </div>
-            </a>
+            
+  </div>
+</a>
           </li>
 
           
 <li class="portfolio-item" data-category="ai">
             <a href="https://github.com/jaggureddy11/EchoVision" target="_blank" rel="noopener" class="portfolio-card">
-              <img src="assets/project-echovision.png" alt="EchoVision preview" class="portfolio-bg-img" />
-              <div class="portfolio-meta-top">
-                <span>Computer Vision — 2026</span>
-                <div class="portfolio-badge">
-                  <svg class="icon icon-stroke" viewBox="0 0 24 24">
+
+              <div class="portfolio-image-wrapper">
+                <img src="assets/project-echovision.png" alt="EchoVision preview" class="portfolio-bg-img" />
+                <div class="portfolio-meta-top">
+                  <span>Computer Vision — 2026</span>
+                  <div class="portfolio-badge">
+                    <svg class="icon icon-stroke" viewBox="0 0 24 24">
                     <path d="M7 17 17 7M8 7h9v9" />
                   </svg>
+                  </div>
                 </div>
               </div>
-              <div class="portfolio-bottom" style="position:relative; z-index:2;">
+              <div class="portfolio-bottom">
                 <h3 class="portfolio-card-title">EchoVision</h3>
                 <p class="portfolio-card-desc">Computer vision spatial sound assistant translating visual scenes into
                   audio spatial cues with OpenCV.</p>
@@ -3452,48 +3478,56 @@
                   <span class="tag-chip">OpenCV</span>
                   <span class="tag-chip">Python</span>
                   <span class="tag-chip">AI Vision</span>
-                </div>
               </div>
-            </a>
+            
+  </div>
+</a>
           </li>
 
           
 <li class="portfolio-item" data-category="mobile">
             <a href="https://github.com/jaggureddy11/MeasureCraft" target="_blank" rel="noopener" class="portfolio-card">
-              <img src="assets/project-measurecraft.png" alt="MeasureCraft preview" class="portfolio-bg-img" />
-              <div class="portfolio-meta-top">
-                <span>Mobile AI App — 2026</span>
-                <div class="portfolio-badge">
-                  <svg class="icon icon-stroke" viewBox="0 0 24 24">
+
+              <div class="portfolio-image-wrapper">
+                <img src="assets/project-measurecraft.png" alt="MeasureCraft preview" class="portfolio-bg-img" />
+                <div class="portfolio-meta-top">
+                  <span>Mobile AI App — 2026</span>
+                  <div class="portfolio-badge">
+                    <svg class="icon icon-stroke" viewBox="0 0 24 24">
                     <path d="M7 17 17 7M8 7h9v9" />
                   </svg>
+                  </div>
                 </div>
               </div>
-              <div class="portfolio-bottom" style="position:relative; z-index:2;">
+              <div class="portfolio-bottom">
                 <h3 class="portfolio-card-title">MeasureCraft</h3>
                 <p class="portfolio-card-desc">AI-powered digital catalog, wood cost estimator, and quoting tool for furniture design.</p>
                 <div class="portfolio-tags">
                   <span class="tag-chip">React Native</span>
                   <span class="tag-chip">Gemini AI</span>
                   <span class="tag-chip">Mobile</span>
-                </div>
               </div>
-            </a>
+            
+  </div>
+</a>
           </li>
 
           
 <li class="portfolio-item" data-category="web">
             <a href="https://github.com/jaggureddy11" target="_blank" rel="noopener" class="portfolio-card">
-              <img src="assets/project-claude.png" alt="Claude Token Counter preview" class="portfolio-bg-img" />
-              <div class="portfolio-meta-top">
-                <span>AI Developer Tool — 2026</span>
-                <div class="portfolio-badge">
-                  <svg class="icon icon-stroke" viewBox="0 0 24 24">
+
+              <div class="portfolio-image-wrapper">
+                <img src="assets/project-claude.png" alt="Claude Token Counter preview" class="portfolio-bg-img" />
+                <div class="portfolio-meta-top">
+                  <span>AI Developer Tool — 2026</span>
+                  <div class="portfolio-badge">
+                    <svg class="icon icon-stroke" viewBox="0 0 24 24">
                     <path d="M7 17 17 7M8 7h9v9" />
                   </svg>
+                  </div>
                 </div>
               </div>
-              <div class="portfolio-bottom" style="position:relative; z-index:2;">
+              <div class="portfolio-bottom">
                 <h3 class="portfolio-card-title">Claude Token Counter</h3>
                 <p class="portfolio-card-desc">Live context token tracking Chrome extension empowering developers to
                   optimize AI model prompts.</p>
@@ -3501,9 +3535,10 @@
                   <span class="tag-chip">Chrome Extension</span>
                   <span class="tag-chip">JavaScript</span>
                   <span class="tag-chip">AI Tools</span>
-                </div>
               </div>
-            </a>
+            
+  </div>
+</a>
           </li>
 
           
