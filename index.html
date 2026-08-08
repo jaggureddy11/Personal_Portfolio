@@ -720,7 +720,7 @@
       font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
       font-weight: 300;
       font-style: italic;
-      font-size: clamp(2.5rem, 5vw, 5rem);
+      font-size: clamp(2rem, 5vw, 5rem);
       line-height: 1.0;
       letter-spacing: -0.01em;
       color: var(--foreground);
@@ -1572,12 +1572,18 @@
       gap: 1.5rem;
       border: 1px solid var(--line);
       border-radius: var(--radius-card-lg);
-      padding: 3.5rem;
+      padding: 1.5rem;
       background: #ffffff;
       height: 100%;
       min-height: 480px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
       transition: box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    @media (min-width: 640px) {
+      .service-row {
+        padding: 3.5rem;
+      }
     }
 
     @media (hover: hover) {
@@ -2276,13 +2282,11 @@
       background: radial-gradient(120% 120% at 20% 20%, #ffffff 0%, #f0ece5 100%);
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
       border: none;
-      border-radius: 50%;
-      /* Circle */
-      aspect-ratio: 1 / 1;
+      border-radius: 2rem;
       width: 100%;
       max-width: 580px;
       margin: 0 auto;
-      padding: 4rem;
+      padding: 2rem 1.5rem;
       justify-content: center;
       align-items: center;
       text-align: center;
@@ -2301,6 +2305,12 @@
       transform: translateY(0);
     }
 
+    @media (min-width: 640px) {
+      .skill-card {
+        padding: 3rem;
+      }
+    }
+
     @media (min-width: 1024px) {
       .skills-content {
         position: relative;
@@ -2308,6 +2318,9 @@
       }
 
       .skill-card {
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+        padding: 4rem;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -2513,11 +2526,17 @@
       background: #ffffff;
       border: 1px solid var(--line);
       border-radius: var(--radius-card-sm);
-      padding: 2rem;
+      padding: 1.25rem;
       display: grid;
       grid-template-columns: 1fr;
       gap: 1.5rem;
       transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    @media (min-width: 640px) {
+      .timeline-card {
+        padding: 2rem;
+      }
     }
 
     @media (min-width: 840px) {
@@ -2657,7 +2676,7 @@
 
     .cinematic-h2 {
       font-family: 'Instrument Serif', serif !important;
-      font-size: clamp(2.8rem, 6.5vw, 5.5rem) !important;
+      font-size: clamp(2rem, 6.5vw, 5.5rem) !important;
       font-weight: 400 !important;
       line-height: 1.02 !important;
       letter-spacing: -0.025em !important;
@@ -2786,7 +2805,7 @@
   <!-- ==================================================== -->
   <div id="loader" class="page-loader" aria-live="polite">
     <div class="loader-center" style="display: flex; align-items: center; justify-content: center; width: 100vw; pointer-events: none;">
-      <div id="splash-name" style="font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(3rem, 8vw, 8rem); font-weight: 300; line-height: 1; letter-spacing: -0.01em; color: var(--foreground); white-space: nowrap; text-align: center; transform-origin: center;">
+      <div id="splash-name" style="font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(1.8rem, 8vw, 8rem); font-weight: 300; line-height: 1; letter-spacing: -0.01em; color: #ffffff; white-space: normal; text-align: center; transform-origin: center;">
         R Jagadishwar Reddy
       </div>
     </div>
@@ -2857,7 +2876,8 @@
               <span class="word-wrap"><span class="word-inner" style="transition-delay:0.26s">&nbsp;Reddy</span></span>
             </span>
             <br />
-            <span class="word-wrap"><span class="word-inner word-accent" style="transition-delay:0.4s">Software&nbsp;Developer</span></span>
+            <span class="word-wrap"><span class="word-inner word-accent" style="transition-delay:0.4s">Software</span></span>
+            <span class="word-wrap"><span class="word-inner word-accent" style="transition-delay:0.5s">Developer</span></span>
           </h1>
 
           <div id="hero-rating" class="hero-rating">
@@ -3318,7 +3338,28 @@
           </div>
           <h2 class="portfolio-h2 line-reveal-trigger">Selected Engineering Work</h2>
 
-          <div class="portfolio-filters" id="portfolio-filters">
+          <div class="portfolio-filters" id="portfolio-filters" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 2rem;">
+            <style>
+              .filter-btn {
+                padding: 0.5rem 1rem;
+                border-radius: 2rem;
+                background: var(--surface);
+                border: 1px solid var(--line);
+                font-size: 0.875rem;
+                font-weight: 500;
+                color: var(--muted);
+                cursor: pointer;
+                transition: all 0.2s ease;
+              }
+              .filter-btn.active, .filter-btn:hover {
+                background: var(--ink);
+                color: #fff;
+                border-color: var(--ink);
+              }
+              .portfolio-item.hidden {
+                display: none !important;
+              }
+            </style>
             <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="ai">AI / ML</button>
             <button class="filter-btn" data-filter="web">Web Apps</button>
@@ -3617,7 +3658,7 @@
             <span>Continuous Learning</span>
           </div>
           <h2 class="certs-h2 line-reveal-trigger"
-            style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; margin-top: 1rem;">
+            style="font-size: clamp(2rem, 5vw, 4rem); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; margin-top: 1rem;">
             Certifications & Awards</h2>
         </div>
 
@@ -3680,6 +3721,7 @@
               flex-direction: column;
               align-items: flex-start;
               gap: 1.5rem;
+              padding: 1.5rem;
             }
 
             .cert-arrow {
@@ -3762,7 +3804,7 @@
             style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); font-weight: 600; margin-bottom: 1rem;">
             Writing</div>
           <h2 class="featured-h2 line-reveal-trigger"
-            style="font-family: 'Instrument Serif', serif; font-size: clamp(3.5rem, 8vw, 6rem); font-weight: 400; letter-spacing: -0.02em; line-height: 1; color: var(--foreground);">
+            style="font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 8vw, 6rem); font-weight: 400; letter-spacing: -0.02em; line-height: 1; color: var(--foreground);">
             Thoughts & <br>deep dives.</h2>
         </div>
 
@@ -3772,7 +3814,7 @@
             flex-direction: column;
             background: #ffffff;
             border-radius: 2rem;
-            padding: 3rem;
+            padding: 1.5rem;
             text-decoration: none;
             transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
@@ -3791,10 +3833,16 @@
           .insight-arrow {
             transition: transform 0.3s ease;
           }
+
+          @media (min-width: 640px) {
+            .insight-card {
+              padding: 3rem;
+            }
+          }
         </style>
 
         <div class="featured-grid"
-          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 2rem;">
 
           <a href="https://www.linkedin.com/posts/jaggureddy_ai-machinelearning-loopengineering-share-7479988532590043136-cg7C/"
             target="_blank" rel="noopener" class="insight-card">
@@ -4340,7 +4388,7 @@
       const canvas = document.getElementById('liquid-canvas');
       if (!container || !canvas) return;
 
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth <= 768) return;
 
       const beforeSrc = 'assets/hero-base.png';
       const afterSrc = 'assets/hero-reveal.png';
@@ -5171,11 +5219,18 @@
     (function initScrollProgress() {
       const bar = document.getElementById('scroll-progress');
       if (!bar) return;
+      let ticking = false;
       window.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        bar.style.width = scrolled + '%';
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            bar.style.width = scrolled + '%';
+            ticking = false;
+          });
+          ticking = true;
+        }
       });
     })();
 
@@ -5202,27 +5257,34 @@
       const track = document.getElementById('methodology-track');
       if (!section || !track) return;
 
+      let ticking = false;
       window.addEventListener('scroll', () => {
-        const rect = section.getBoundingClientRect();
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const rect = section.getBoundingClientRect();
 
-        // Calculate vertical scroll progress through the section
-        const maxScroll = section.offsetHeight - window.innerHeight;
-        let scrollProgress = -rect.top / maxScroll;
+            // Calculate vertical scroll progress through the section
+            const maxScroll = section.offsetHeight - window.innerHeight;
+            let scrollProgress = -rect.top / maxScroll;
 
-        // clamp progress between 0 and 1
-        scrollProgress = Math.max(0, Math.min(1, scrollProgress));
+            // clamp progress between 0 and 1
+            scrollProgress = Math.max(0, Math.min(1, scrollProgress));
 
-        // Calculate max translate
-        const maxTranslate = track.scrollWidth - window.innerWidth;
+            // Calculate max translate
+            const maxTranslate = track.scrollWidth - window.innerWidth;
 
-        if (maxTranslate > 0) {
-          if (rect.top <= 0 && scrollProgress <= 1) {
-            track.style.transform = `translateX(${-scrollProgress * maxTranslate}px)`;
-          } else if (rect.top > 0) {
-            track.style.transform = `translateX(0px)`;
-          } else if (scrollProgress > 1) {
-            track.style.transform = `translateX(${-maxTranslate}px)`;
-          }
+            if (maxTranslate > 0) {
+              if (rect.top <= 0 && scrollProgress <= 1) {
+                track.style.transform = `translateX(${-scrollProgress * maxTranslate}px)`;
+              } else if (rect.top > 0) {
+                track.style.transform = `translateX(0px)`;
+              } else if (scrollProgress > 1) {
+                track.style.transform = `translateX(${-maxTranslate}px)`;
+              }
+            }
+            ticking = false;
+          });
+          ticking = true;
         }
       });
     })();
